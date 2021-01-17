@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -19,7 +18,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@vt/core": [
+        "projects/vt/core/src/public-api.ts",
+        "dist/vt/core/vt-core",
+        "dist/vt/core",
+      ]
+    }
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
