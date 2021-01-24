@@ -1,3 +1,22 @@
-<vtc-caption value="hello" sfx="!!!"></vtc-caption>
-<vtc-core></vtc-core>
-<router-outlet></router-outlet>
+<div class="container">
+  <table class="table table-striped" cdk-table [dataSource]="usersData" [trackBy]="trackByFn">
+    <ng-container cdkColumnDef="firstName">
+      <th cdk-header-cell *cdkHeaderCellDef vtcCaption="first_name"></th>
+      <td cdk-cell *cdkCellDef="let element">{{element.firstName}}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="middleName">
+      <th cdk-header-cell *cdkHeaderCellDef vtcCaption="middle_name"></th>
+      <td cdk-cell *cdkCellDef="let element">{{element.middleName}}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="lastName">
+      <th cdk-header-cell *cdkHeaderCellDef vtcCaption="last_name"></th>
+      <td cdk-cell *cdkCellDef="let element">{{element.lastName}}</td>
+    </ng-container>
+    <tr cdk-header-row *cdkHeaderRowDef="userTableColumns"></tr>
+    <tr cdk-row *cdkRowDef="let row; columns: userTableColumns"></tr>
+    <tr *cdkNoDataRow>
+      <td colspan="3" class="text-center" vtcCaption="no_data"></td>
+    </tr>
+  </table>
+  <vtc-pagination [count]="11"></vtc-pagination>
+</div>

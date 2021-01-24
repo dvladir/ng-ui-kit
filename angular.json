@@ -31,7 +31,8 @@
           "options": {
             "main": "projects/vt/core/src/test.ts",
             "tsConfig": "projects/vt/core/tsconfig.spec.json",
-            "karmaConfig": "projects/vt/core/karma.conf.js"
+            "karmaConfig": "projects/vt/core/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -138,7 +139,8 @@
             "styles": [
               "projects/test-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "codeCoverage": true
           }
         },
         "lint": {

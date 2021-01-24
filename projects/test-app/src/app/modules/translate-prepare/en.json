@@ -1,6 +1,10 @@
 {
   "CAPTIONS": {
-    "hello": "Hello world"
+    "hello": "Hello world",
+    "first_name":  "First Name",
+    "last_name": "Last Name",
+    "middle_name": "Middle Name",
+    "no_data": "No data available"
   },
   "MESSAGES": {
     "ok": "Everything is alright"
