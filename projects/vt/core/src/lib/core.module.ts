@@ -4,18 +4,15 @@ import {TranslationsModule} from './modules/translations/translations.module';
 import {CdkTableModule} from '@angular/cdk/table';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import {CommonModule} from '@angular/common';
-import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {fas} from '@fortawesome/free-solid-svg-icons';
-
-
+import { TableComponent } from './components/table/table.component';
+import { SortableComponent } from './components/sortable/sortable.component';
 
 @NgModule({
-  declarations: [CoreComponent, PaginationComponent],
+  declarations: [CoreComponent, PaginationComponent, TableComponent, SortableComponent],
   imports: [
     TranslationsModule,
     CdkTableModule,
-    CommonModule,
-    FontAwesomeModule
+    CommonModule
   ],
   exports: [
     CommonModule,
@@ -23,11 +20,9 @@ import {fas} from '@fortawesome/free-solid-svg-icons';
     TranslationsModule,
     CdkTableModule,
     PaginationComponent,
-    FontAwesomeModule
+    TableComponent,
+    SortableComponent
   ]
 })
 export class CoreModule {
-  constructor(iconLib: FaIconLibrary) {
-    iconLib.addIconPacks(fas);
-  }
 }

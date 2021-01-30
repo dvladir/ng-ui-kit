@@ -1,0 +1,13 @@
+<ng-container *ngIf="(sort$ | async) as sort">
+  <div (click)="changeSort(sort)">
+    <ng-content>
+    </ng-content>
+    <div class="sort" [ngClass]="{
+      'sort-asc': sort === Sort.asc,
+      'sort-desc': sort === Sort.desc
+    }">
+      <i class="fas fa-caret-up icon-asc"></i>
+      <i class="fas fa-caret-down icon-desc"></i>
+    </div>
+  </div>
+</ng-container>

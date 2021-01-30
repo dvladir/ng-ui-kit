@@ -29,6 +29,8 @@ export class PaginationComponent implements OnInit, OnDestroy {
     return this._count$.value;
   }
 
+  @Input() isCurrentPageAutoUpdate: boolean = true;
+
   @Input() set count(value: number){
     if (value === this.count) {
       return;
@@ -147,7 +149,9 @@ export class PaginationComponent implements OnInit, OnDestroy {
     if (index === this.current) {
       return;
     }
-    this.current = index;
+    if (this.isCurrentPageAutoUpdate) {
+      this.current = index;
+    }
     this.currentChange.emit(index);
   }
 

@@ -1,22 +1,29 @@
 <div class="container">
-  <table class="table table-striped" cdk-table [dataSource]="usersData" [trackBy]="trackByFn">
+  <vtc-table [config]="paginationConfig" [trackBy]="trackByFn">
     <ng-container cdkColumnDef="firstName">
-      <th cdk-header-cell *cdkHeaderCellDef vtcCaption="first_name"></th>
+      <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+        <vtc-caption value="first_name"></vtc-caption>
+      </th>
       <td cdk-cell *cdkCellDef="let element">{{element.firstName}}</td>
     </ng-container>
     <ng-container cdkColumnDef="middleName">
-      <th cdk-header-cell *cdkHeaderCellDef vtcCaption="middle_name"></th>
+      <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+        <vtc-caption value="middle_name"></vtc-caption>
+      </th>
       <td cdk-cell *cdkCellDef="let element">{{element.middleName}}</td>
     </ng-container>
     <ng-container cdkColumnDef="lastName">
-      <th cdk-header-cell *cdkHeaderCellDef vtcCaption="last_name"></th>
+      <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+        <vtc-caption value="last_name"></vtc-caption>
+      </th>
       <td cdk-cell *cdkCellDef="let element">{{element.lastName}}</td>
     </ng-container>
-    <tr cdk-header-row *cdkHeaderRowDef="userTableColumns"></tr>
-    <tr cdk-row *cdkRowDef="let row; columns: userTableColumns"></tr>
-    <tr *cdkNoDataRow>
-      <td colspan="3" class="text-center" vtcCaption="no_data"></td>
-    </tr>
-  </table>
-  <vtc-pagination [count]="11"></vtc-pagination>
+  </vtc-table>
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-primary" (click)="togglePaginationType()">
+        {{isLocal ? 'Local pagination' : 'Remote pagination'}}
+      </button>
+    </div>
+  </div>
 </div>

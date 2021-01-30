@@ -1,0 +1,27 @@
+:host {
+  cursor: pointer;
+}
+
+.sort {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  height: 1.5rem;
+  justify-content: center;
+
+  i {
+    line-height: .5;
+  }
+
+  &.sort-asc {
+    .icon-desc {
+      visibility: hidden;
+    }
+  }
+
+  &.sort-desc {
+    .icon-asc {
+      visibility: hidden;
+    }
+  }
+}
