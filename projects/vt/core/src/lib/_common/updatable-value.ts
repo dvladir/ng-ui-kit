@@ -1,19 +1,8 @@
-import {OnDestroy} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {Injectable, OnDestroy} from '@angular/core';
 
+@Injectable()
 export abstract class UpdatableValue<T> implements OnDestroy {
-
-  protected constructor(defaultValue: T) {
-    const defValue: T =
-      typeof defaultValue === 'object' ?
-        {...defaultValue} : defaultValue;
-
-    this._value$ = new BehaviorSubject<T>(defValue);
-    this._valueChange$ = new BehaviorSubject<T>(defValue);
-  }
-
-  private readonly _value$: BehaviorSubject<T>;
-  private readonly _valueChange$: BehaviorSubject<T>;
 
   get value(): T {
     return this._value$.value;
@@ -34,7 +23,12 @@ export abstract class UpdatableValue<T> implements OnDestroy {
     return this._valueChange$;
   }
 
+  private readonly _value$: BehaviorSubject<T> = new BehaviorSubject<T>(this.getDefaultValue());
+  private readonly _valueChange$: BehaviorSubject<T> = new BehaviorSubject<T>(this.getDefaultValue());
+
   isImmediateUpdate: boolean = false;
+
+  protected abstract getDefaultValue(): T;
 
   update(value: T): void {
     this._valueChange$.next(value);

@@ -10,8 +10,8 @@ const c = 'baz';
 
 @Injectable()
 class UpdatableValueService extends UpdatableValue<string> {
-  constructor() {
-    super(a);
+  protected getDefaultValue(): string {
+    return a;
   }
 }
 
