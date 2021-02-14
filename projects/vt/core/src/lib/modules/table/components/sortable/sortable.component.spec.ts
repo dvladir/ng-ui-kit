@@ -1,13 +1,13 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SortableComponent} from './sortable.component';
-import {SortStateService} from '../../services/sort-state.service';
-import {SortStateMockService} from '../../services/sort-state.mock.service';
 import {CdkTableModule} from '@angular/cdk/table';
 import {TestScheduler} from 'rxjs/testing';
 import {Component, DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
 import {By} from '@angular/platform-browser';
 import {Sort, Utils} from '@vt/core';
+import {SortStateMockService} from '../../services/sort-state.mock.service';
+import {SortStateService} from '../../services/sort-state.service';
 
 @Component({
   selector: 'vtc-sortable-wrapper',

@@ -13,10 +13,10 @@ import {
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {map, shareReplay, takeUntil} from 'rxjs/operators';
 import {CdkColumnDef, CdkTable} from '@angular/cdk/table';
+import {Sort} from '../../shared/sort.enum';
 import {PaginationData} from '../../shared/pagination-data';
 import {PaginationConfig, PaginationSetupFactoryService} from '../../services/pagination-setup/pagination-setup-factory.service';
 import {SortStateService} from '../../services/sort-state.service';
-import {Sort} from '../../shared/sort.enum';
 
 @Component({
   selector: 'vtc-table',

@@ -1,9 +1,9 @@
-import {Component, Host, OnDestroy, OnInit, Optional} from '@angular/core';
+import {Component, Host, OnInit} from '@angular/core';
 import {CdkColumnDef} from '@angular/cdk/table';
-import {SortStateService} from '../../services/sort-state.service';
 import {Observable, of} from 'rxjs';
-import {Sort} from '../../shared/sort.enum';
 import {map} from 'rxjs/operators';
+import {SortStateService} from '../../services/sort-state.service';
+import {Sort} from '../../shared/sort.enum';
 
 @Component({
   // tslint:disable-next-line:component-selector

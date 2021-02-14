@@ -1,5 +1,4 @@
 import {v4} from 'uuid';
-import {SortField} from '../shared/sort-field';
 
 export class Utils {
 
