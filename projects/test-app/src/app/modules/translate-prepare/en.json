@@ -6,7 +6,14 @@
     "middle_name": "Middle Name",
     "no_data": "No data available"
   },
+  "YES_NO_CANCEL": {
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel"
+  },
   "MESSAGES": {
-    "ok": "Everything is alright"
+    "ok": "Everything is alright",
+    "confirm_choose": "Please choose the answer?",
+    "confirm": "Are you sure?"
   }
 }

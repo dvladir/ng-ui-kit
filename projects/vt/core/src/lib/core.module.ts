@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {CdkExportModule} from './modules/cdk-export/cdk-export.module';
 import {TranslationsModule} from './modules/translations/translations.module';
 import {TableModule} from './modules/table/table.module';
+import {ModalModule} from './modules/modal/modal.module';
 
 @NgModule({
   declarations: [],
@@ -11,12 +12,14 @@ import {TableModule} from './modules/table/table.module';
     TranslationsModule,
     CdkTableModule,
     CommonModule,
+    ModalModule,
     TableModule
   ],
   exports: [
     CommonModule,
     TranslationsModule,
     CdkExportModule,
+    ModalModule,
     TableModule
   ]
 })

@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CoreModule} from '@vt/core';
 import {TranslatePrepareModule} from './modules/translate-prepare/translate-prepare.module';
+import { TestModalComponent } from './components/test-modal/test-modal.component';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestModalComponent
   ],
   imports: [
     TranslatePrepareModule,
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

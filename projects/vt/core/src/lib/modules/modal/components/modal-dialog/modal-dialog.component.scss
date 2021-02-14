@@ -1,0 +1,14 @@
+.modal-header:empty,
+.modal-footer:empty {
+  display: none;
+}
+
+:host {
+  min-width: 50rem;
+  display: block;
+}
+
+.modal-footer::ng-deep button {
+  margin-left: .5rem;
+  min-width: 5rem;
+}
