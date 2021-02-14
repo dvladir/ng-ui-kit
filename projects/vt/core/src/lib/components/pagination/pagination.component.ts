@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs';
 import {map, shareReplay, takeUntil} from 'rxjs/operators';
+import {PageSateService} from '../../services/page-sate.service';
 
 export interface PageBtnInfo {
   readonly index: number;
@@ -17,19 +18,34 @@ export interface PaginationInfo {
 @Component({
   selector: 'vtc-pagination',
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+  styleUrls: ['./pagination.component.scss'],
+  providers: [
+    PageSateService
+  ]
 })
 export class PaginationComponent implements OnInit, OnDestroy {
 
+  constructor(
+    private _state: PageSateService
+  ) {
+    this._state.isImmediateUpdate = true;
+  }
+
   private _terminator$: Subject<unknown> = new Subject<unknown>();
+
+  get isImmediateUpdate(): boolean {
+    return this._state.isImmediateUpdate;
+  }
+
+  @Input() set isCurrentPageAutoUpdate(value: boolean) {
+    this._state.isImmediateUpdate = value;
+  }
 
   private _count$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   get count(): number {
     return this._count$.value;
   }
-
-  @Input() isCurrentPageAutoUpdate: boolean = true;
 
   @Input() set count(value: number){
     if (value === this.count) {
@@ -38,17 +54,12 @@ export class PaginationComponent implements OnInit, OnDestroy {
     this._count$.next(value);
   }
 
-  private _current$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-
   get current(): number {
-    return this._current$.value;
+    return this._state.value;
   }
 
   @Input() set current(value: number) {
-    if (value === this.current) {
-      return;
-    }
-    this._current$.next(value);
+    this._state.value = value;
   }
 
   @Output() currentChange: EventEmitter<number> = new EventEmitter<number>();
@@ -72,7 +83,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
     takeUntil(this._terminator$)
   );
 
-  private _paginationInfo$: Observable<PaginationInfo> = combineLatest(this._allIndexes$, this._current$, this._limit$)
+  private _paginationInfo$: Observable<PaginationInfo> = combineLatest(this._allIndexes$, this._state.value$, this._limit$)
     .pipe(
       map(([numbers, current, limit]) => {
         if (numbers.length <= limit) {
@@ -112,7 +123,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
   readonly isLeftOffset$: Observable<boolean> = this._paginationInfo$.pipe(map(({isLeftOffset}) => !!isLeftOffset));
   readonly isRightOffset$: Observable<boolean> = this._paginationInfo$.pipe(map(({isRightOffset}) => !!isRightOffset));
 
-  readonly pages$: Observable<ReadonlyArray<PageBtnInfo>> = combineLatest(this._paginationInfo$, this._current$)
+  readonly pages$: Observable<ReadonlyArray<PageBtnInfo>> = combineLatest(this._paginationInfo$, this._state.value$)
     .pipe(
       map(([{indexesToDisplay}, current]) => {
 
@@ -127,12 +138,12 @@ export class PaginationComponent implements OnInit, OnDestroy {
       })
     );
 
-  readonly isCanNext$: Observable<boolean> = combineLatest(this._count$, this._current$)
+  readonly isCanNext$: Observable<boolean> = combineLatest(this._count$, this._state.value$)
     .pipe(
       map(([count, current]) => this.isCanNext(count, current))
     );
 
-  readonly isCanPrev$: Observable<boolean> = combineLatest(this._count$, this._current$)
+  readonly isCanPrev$: Observable<boolean> = combineLatest(this._count$, this._state.value$)
     .pipe(
       map(([count, current]) => this.isCanPrev(count, current))
     );
@@ -146,13 +157,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
   }
 
   goToPage(index: number): void {
-    if (index === this.current) {
-      return;
-    }
-    if (this.isCurrentPageAutoUpdate) {
-      this.current = index;
-    }
-    this.currentChange.emit(index);
+    this._state.update(index);
   }
 
   goFirst(): void {
@@ -184,11 +189,15 @@ export class PaginationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this._state.valueChange$
+      .pipe(
+        takeUntil(this._terminator$)
+      )
+      .subscribe(x => this.currentChange.emit(x));
   }
 
   ngOnDestroy(): void {
     this._count$.complete();
-    this._current$.complete();
     this._limit$.complete();
     this._terminator$.next();
     this._terminator$.complete();

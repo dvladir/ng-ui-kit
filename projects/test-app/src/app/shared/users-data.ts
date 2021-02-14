@@ -1,3 +1,5 @@
+import {Utils} from '@vt/core';
+
 export interface User {
   id: number;
   firstName: string;
@@ -5,13 +7,8 @@ export interface User {
   middleName: string;
 }
 
-const randomInt = (min: number = 0, max: number = 9999): number => {
-  const rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-};
-
 export const createUser = (firstName: string, middleName: string, lastName: string): User => {
-  const id = randomInt();
+  const id = Utils.randomInt();
   return {id, firstName, lastName, middleName};
 };
 

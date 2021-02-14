@@ -176,10 +176,12 @@ describe('PaginationComponent', () => {
     expect(component.current).toBe(1);
     expect(component.currentChange.emit).toHaveBeenCalledWith(1);
 
-    spyEmit.calls.reset();
-    component.goToPage(1);
+    component.isCurrentPageAutoUpdate = false;
+    x.btnNext!.querySelector('a')!.click();
     fixture.detectChanges();
-    expect(component.currentChange.emit).not.toHaveBeenCalled();
+
+    expect(component.current).toBe(1);
+    expect(component.currentChange.emit).toHaveBeenCalledWith(2);
   });
 
   it('Check methods', () => {

@@ -1,48 +1,14 @@
-import {Injectable, OnDestroy} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
 import {SortField} from '../shared/sort-field';
 import {Sort} from '../shared/sort.enum';
+import {UpdatableValue} from '../_common/updatable-value';
 
-const DEF_SORT_VALUE: SortField = {field: '', sort: Sort.none};
 
 @Injectable()
-export class SortStateService implements OnDestroy {
+export class SortStateService extends UpdatableValue<SortField>{
 
-  private _activeSort$: BehaviorSubject<SortField> = new BehaviorSubject<SortField>({...DEF_SORT_VALUE});
-
-  get activeSort(): SortField {
-    return this._activeSort$.value;
+  constructor() {
+    super({field: '', sort: Sort.none});
   }
 
-  set activeSort(value: SortField) {
-    if (value === this.activeSort) {
-      return;
-    }
-    this._activeSort$.next(value);
-  }
-
-  get activeSort$(): Observable<SortField> {
-    return this._activeSort$;
-  }
-
-  private _activeSortChange$: BehaviorSubject<SortField> = new BehaviorSubject<SortField>({...DEF_SORT_VALUE});
-
-  get activeSortChange$(): Observable<SortField> {
-    return this._activeSortChange$;
-  }
-
-  isImmediateUpdate: boolean = false;
-
-
-  updateSort(sort: SortField): void {
-    this._activeSortChange$.next(sort);
-    if (this.isImmediateUpdate) {
-      this.activeSort = sort;
-    }
-  }
-
-  ngOnDestroy(): void {
-    this._activeSort$.complete();
-    this._activeSortChange$.complete();
-  }
 }

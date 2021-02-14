@@ -14,7 +14,7 @@ import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {map, shareReplay, takeUntil} from 'rxjs/operators';
 import {CdkColumnDef, CdkTable} from '@angular/cdk/table';
 import {PaginationData} from '../../shared/pagination-data';
-import {PaginationConfig, PaginationSetupService} from '../../services/pagination-setup/pagination-setup.service';
+import {PaginationConfig, PaginationSetupFactoryService} from '../../services/pagination-setup/pagination-setup-factory.service';
 import {SortStateService} from '../../services/sort-state.service';
 import {Sort} from '../../shared/sort.enum';
 
@@ -23,14 +23,14 @@ import {Sort} from '../../shared/sort.enum';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   providers: [
-    PaginationSetupService,
+    PaginationSetupFactoryService,
     SortStateService
   ]
 })
 export class TableComponent<T> implements AfterViewInit, OnDestroy, OnChanges {
 
   constructor(
-    private _paginationSetup: PaginationSetupService<T>,
+    private _paginationSetupFactory: PaginationSetupFactoryService,
     private _sortState: SortStateService
   ) {
   }
@@ -88,13 +88,13 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy, OnChanges {
 
     this._terminator$ = new Subject<unknown>();
 
-    this._paginationData$ = this._paginationSetup
-      .setConfig(this.config!)
+    this._paginationData$ = this._paginationSetupFactory
+      .create<T>(this.config!)
       .setup(
         this._refresh$,
         this._pageSize$,
         this._currentPage$,
-        this._sortState.activeSortChange$
+        this._sortState.valueChange$
       )
       .pipe(
         takeUntil(this._terminator$),
@@ -106,7 +106,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy, OnChanges {
     this.pagesCount$ = this._paginationData$.pipe(map(x => x?.totalPages || 0));
     this.currentPage$ = this._paginationData$.pipe(map(x => x?.currentPage || 0));
     this._paginationData$.subscribe(x => {
-      this._sortState.activeSort = x?.sort || {field: '', sort: Sort.none};
+      this._sortState.value = x?.sort || {field: '', sort: Sort.none};
     });
   }
 

@@ -1,10 +1,9 @@
 import {Component, OnDestroy, OnInit, TrackByFunction} from '@angular/core';
-import {PaginationConfig, UtilsService} from '@vt/core';
-import {BehaviorSubject, combineLatest, Observable, of, Subject} from 'rxjs';
-import {map, shareReplay, takeUntil} from 'rxjs/operators';
-import {User, USERS} from './shared/users-data';
+import {PaginationConfig, SortField} from '@vt/core';
+import {Observable, Subject} from 'rxjs';
+import {shareReplay, takeUntil} from 'rxjs/operators';
+import {User} from './shared/users-data';
 import {UsersService} from './services/users.service';
-import {SortField} from '../../../vt/core/src/lib/shared/sort-field';
 
 @Component({
   selector: 'vta-root',
