@@ -1,7 +1,7 @@
-import {SimpleMessage} from '@vt/core';
+import {VtMessage} from '../../translations/public-api';
 
 export interface ButtonDescription<T> {
-  caption: string | SimpleMessage;
+  caption: VtMessage;
   btnClass: string;
   btnIcon?: string;
   isDefault?: boolean;

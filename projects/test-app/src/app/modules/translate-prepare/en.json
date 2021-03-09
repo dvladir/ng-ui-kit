@@ -4,7 +4,16 @@
     "first_name":  "First Name",
     "last_name": "Last Name",
     "middle_name": "Middle Name",
-    "no_data": "No data available"
+    "no_data": "No data available",
+    "choose": "Choose",
+    "confirm": "Confirm",
+    "show_modal": "Show modal",
+    "local_pagination": "Local pagination",
+    "remote_pagination": "Remote pagination"
+  },
+  "V_TABS": {
+    "table": "Table",
+    "messages": "Messages"
   },
   "YES_NO_CANCEL": {
     "yes": "Yes",
@@ -14,6 +23,10 @@
   "MESSAGES": {
     "ok": "Everything is alright",
     "confirm_choose": "Please choose the answer?",
-    "confirm": "Are you sure?"
+    "confirm": "Are you sure?",
+    "success_message": "Success message",
+    "warning_message": "Warning message",
+    "error_message": "Error message",
+    "info_message": "Info message"
   }
 }

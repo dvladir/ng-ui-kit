@@ -6,8 +6,6 @@ import {PlaceholderCaptionDirective} from './directives/placeholder-caption.dire
 import { CaptionDirective } from './directives/caption.directive';
 import { CaptionComponent } from './components/caption/caption.component';
 
-
-
 @NgModule({
   declarations: [TitleCaptionDirective, PlaceholderCaptionDirective, CaptionDirective, CaptionComponent],
   imports: [

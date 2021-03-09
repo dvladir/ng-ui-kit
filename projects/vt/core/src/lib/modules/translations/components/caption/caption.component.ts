@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {SimpleMessage} from '../../shared/simple-message';
+import { VtMessage } from '../../shared/vt-message';
 
 @Component({
   selector: 'vtc-caption',
@@ -9,7 +9,7 @@ import {SimpleMessage} from '../../shared/simple-message';
   `
 })
 export class CaptionComponent {
-  @Input() value: string | SimpleMessage = '';
+  @Input() value: VtMessage = '';
   @Input() view?: string;
   @Input() sfx?: string;
   @Input() pfx?: string;

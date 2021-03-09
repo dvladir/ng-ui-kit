@@ -1,0 +1,46 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+:host {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  box-sizing: border-box;
+  margin: 0.1em;
+  width: calc(100% - 0.2em);
+}
+
+@include media-breakpoint-up(xs) {
+  :host {
+    width: 70%;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  :host {
+    width: 65%;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  :host {
+    width: 50%;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  :host {
+    width: 40%;
+  }
+}
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+
+  .alert__remove {
+    cursor: pointer;
+  }
+}

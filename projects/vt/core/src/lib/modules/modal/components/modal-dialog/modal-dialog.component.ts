@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {SimpleMessage} from '../../../translations/shared/simple-message';
+import { VtMessage } from '../../../translations/shared/vt-message';
 import {ModalRef} from '../../shared/modal-ref';
 
 @Component({
@@ -13,5 +13,5 @@ export class ModalDialogComponent {
     public ref: ModalRef
   ) { }
 
-  @Input() headerCaption?: string | SimpleMessage;
+  @Input() headerCaption?: VtMessage;
 }

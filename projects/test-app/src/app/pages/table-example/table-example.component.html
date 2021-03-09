@@ -1,0 +1,33 @@
+<vtc-table [config]="paginationConfig" [trackBy]="trackByFn">
+  <ng-container cdkColumnDef="firstName">
+    <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+      <vtc-caption value="first_name"></vtc-caption>
+    </th>
+    <td cdk-cell *cdkCellDef="let element">{{element.firstName}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="middleName">
+    <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+      <vtc-caption value="middle_name"></vtc-caption>
+    </th>
+    <td cdk-cell *cdkCellDef="let element">{{element.middleName}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="lastName">
+    <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+      <vtc-caption value="last_name"></vtc-caption>
+    </th>
+    <td cdk-cell *cdkCellDef="let element">{{element.lastName}}</td>
+  </ng-container>
+</vtc-table>
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-primary" (click)="togglePaginationType()">
+      <ng-container *ngIf="isLocal; then pLocal; else pRemote"></ng-container>
+      <ng-template #pLocal>
+        <vtc-caption value="local_pagination"></vtc-caption>
+      </ng-template>
+      <ng-template #pRemote>
+        <vtc-caption value="remote_pagination"></vtc-caption>
+      </ng-template>
+    </button>
+  </div>
+</div>

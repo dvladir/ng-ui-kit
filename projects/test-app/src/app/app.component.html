@@ -1,38 +1,25 @@
 <div class="container">
-  <vtc-table [config]="paginationConfig" [trackBy]="trackByFn">
-    <ng-container cdkColumnDef="firstName">
-      <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
-        <vtc-caption value="first_name"></vtc-caption>
-      </th>
-      <td cdk-cell *cdkCellDef="let element">{{element.firstName}}</td>
-    </ng-container>
-    <ng-container cdkColumnDef="middleName">
-      <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
-        <vtc-caption value="middle_name"></vtc-caption>
-      </th>
-      <td cdk-cell *cdkCellDef="let element">{{element.middleName}}</td>
-    </ng-container>
-    <ng-container cdkColumnDef="lastName">
-      <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
-        <vtc-caption value="last_name"></vtc-caption>
-      </th>
-      <td cdk-cell *cdkCellDef="let element">{{element.lastName}}</td>
-    </ng-container>
-  </vtc-table>
-  <div class="row">
+  <div class="row m-3">
     <div class="col">
-      <button type="button" class="btn btn-primary" (click)="togglePaginationType()">
-        {{isLocal ? 'Local pagination' : 'Remote pagination'}}
-      </button>
-      <button type="button" class="btn btn-danger" (click)="choose()">
-        Choose
-      </button>
-      <button type="button" class="btn btn-outline-secondary" (click)="confirmed()">
-        Confirm
-      </button>
-      <button type="button" class="btn btn-success" (click)="showModal()">
-        Show modal
-      </button>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="table" routerLinkActive="active">
+            <vtc-caption value="table" view="V_TABS"></vtc-caption>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="messages" routerLinkActive="active">
+            <vtc-caption value="messages" view="V_TABS"></vtc-caption>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row m-3">
+    <div class="col">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+<vtc-toast-view>
+</vtc-toast-view>

@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
 import {BaseCaptionDirective} from './base-caption.directive';
 import {TranslationHelperService} from '../services/translation-helper.service';
-import {SimpleMessage} from '../shared/simple-message';
+import { VtMessage } from '../shared/vt-message';
 
 @Directive({
   selector: '[vtcTitleCaption]'
@@ -16,7 +16,7 @@ export class TitleCaptionDirective extends BaseCaptionDirective {
     super(tnsHelper);
   }
 
-  @Input('vtcTitleCaption') message: string | SimpleMessage = '';
+  @Input('vtcTitleCaption') message: VtMessage = '';
 
   protected updateText(text: string): void {
     this._renderer.setAttribute(this._elRef.nativeElement, 'title', text);

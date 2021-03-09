@@ -10,7 +10,7 @@ describe('RemotePaginationSetup', () => {
   let remotePagination: RemotePaginationSetup<{foo: string}>;
 
   beforeEach(() => {
-    scheduler = new TestScheduler(((actual, expected) => expect(expected).toEqual(actual)));
+    scheduler = new TestScheduler((actual, expected) => expect(expected).toEqual(actual));
     sbj$ = new Subject<{pageSize: number; currentPage: number; sort: SortField}>();
 
     const conf: RemotePaginationConfig<{ foo: string }> = {

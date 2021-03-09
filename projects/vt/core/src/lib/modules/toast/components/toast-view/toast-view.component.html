@@ -1,0 +1,16 @@
+<div *ngFor="let msg of (messages$ | async)"
+  class="alert" [ngClass]="{
+     'alert-success': msg.messageType === MessageType.ok,
+     'alert-danger': msg.messageType === MessageType.err,
+     'alert-warning': msg.messageType === MessageType.warn,
+     'alert-info': msg.messageType === MessageType.info
+  }"
+  [@flyIn]="'in'"
+  (@flyIn.start)="appearAnimate = 'beforeAdd'"
+  (@flyIn.done)="appearAnimate = 'afterAdd'"
+  [@flyOut]="'out'">
+  <div>{{msg.text}}</div>
+  <span class="alert__remove" (click)="remove(msg)">
+    <i class="fa fa-times"></i>
+  </span>
+</div>

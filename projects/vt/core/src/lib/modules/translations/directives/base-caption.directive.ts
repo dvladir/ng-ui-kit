@@ -1,7 +1,7 @@
 import {Directive, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {TranslationHelperService} from '../services/translation-helper.service';
-import {SimpleMessage} from '../shared/simple-message';
 import {Subscription} from 'rxjs';
+import { VtMessage } from '../shared/vt-message';
 
 @Directive({
   selector: '[vtcBaseCaption]'
@@ -13,7 +13,7 @@ export abstract class BaseCaptionDirective implements OnChanges, OnInit, OnDestr
   ) {
   }
 
-  @Input() message: string | SimpleMessage = '';
+  @Input() message: VtMessage = '';
   @Input() view?: string;
   @Input() sfx?: string;
   @Input() pfx?: string;

@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-danger" (click)="choose()">
+      <vtc-caption value="choose"></vtc-caption>
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-outline-secondary" (click)="confirmed()">
+      <vtc-caption value="confirm"></vtc-caption>
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-success" (click)="showModal()">
+      <vtc-caption value="show_modal"></vtc-caption>
+    </button>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col">
+    <button type="button" class="btn btn-success" (click)="successMessage()">
+      <vtc-caption value="success_message" view="MESSAGES"></vtc-caption>
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-warning" (click)="warningMessage()">
+      <vtc-caption value="warning_message" view="MESSAGES"></vtc-caption>
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-danger" (click)="errorMessage()">
+      <vtc-caption value="error_message" view="MESSAGES"></vtc-caption>
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-info" (click)="infoMessage()">
+      <vtc-caption value="info_message" view="MESSAGES"></vtc-caption>
+    </button>
+  </div>
+</div>

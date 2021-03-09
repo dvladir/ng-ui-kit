@@ -1,8 +1,8 @@
 import {Inject, Injectable, Optional} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Observable} from 'rxjs';
-import {SimpleMessage} from '../shared/simple-message';
 import {DEFAULT_VIEW} from '../shared/default-view';
+import {VtMessage} from '../shared/vt-message';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class TranslationHelperService {
     this._translateService.use(lang);
   }
 
-  getTranslation(message: string | SimpleMessage, view?: string): string {
+  getTranslation(message: VtMessage, view?: string): string {
 
     if (!message) {
       return '';

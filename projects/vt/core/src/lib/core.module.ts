@@ -5,6 +5,7 @@ import {CdkExportModule} from './modules/cdk-export/cdk-export.module';
 import {TranslationsModule} from './modules/translations/translations.module';
 import {TableModule} from './modules/table/table.module';
 import {ModalModule} from './modules/modal/modal.module';
+import {ToastModule} from './modules/toast/toast.module';
 
 @NgModule({
   declarations: [],
@@ -13,14 +14,16 @@ import {ModalModule} from './modules/modal/modal.module';
     CdkTableModule,
     CommonModule,
     ModalModule,
-    TableModule
+    TableModule,
+    ToastModule
   ],
   exports: [
     CommonModule,
     TranslationsModule,
     CdkExportModule,
     ModalModule,
-    TableModule
+    TableModule,
+    ToastModule
   ]
 })
 export class CoreModule {

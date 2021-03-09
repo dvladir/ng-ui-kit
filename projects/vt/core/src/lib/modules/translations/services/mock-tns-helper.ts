@@ -1,6 +1,6 @@
-import {SimpleMessage} from '../shared/simple-message';
 import {OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs';
+import {VtMessage} from '../shared/vt-message';
 
 export class MockTnsHelper implements OnDestroy {
 
@@ -12,7 +12,7 @@ export class MockTnsHelper implements OnDestroy {
 
   readonly languageChange$: Subject<unknown> = new Subject<unknown>();
 
-  getTranslation(message: string | SimpleMessage, view?: string): string {
+  getTranslation(message: VtMessage, view?: string): string {
 
     if (!message) {
       return '';
