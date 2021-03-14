@@ -25,6 +25,10 @@ export class TranslationHelperService {
     this._translateService.use(lang);
   }
 
+  getView(view: string): {[key: string]: string} {
+    return this._translateService.instant(view) || {};
+  }
+
   getTranslation(message: VtMessage, view?: string): string {
 
     if (!message) {

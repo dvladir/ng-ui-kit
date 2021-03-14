@@ -1,0 +1,20 @@
+<vtc-dropdown #vtcDropdown="vtcDropdown" [listProvider]="listProvider" [(selectedItem)]="selectedItem">
+  <div #readonlyView class="form-control" [class.is-hidden]="vtcDropdown.isOpen" [tabIndex]="vtTabIndex"
+       [attr.readonly]="readonlyState"
+       (click)="open()"
+       (keydown.arrowDown)="open()"
+       (keydown.delete)="clear()"
+       (keydown.backspace)="clear()">
+    {{selectedItem?.label}}
+  </div>
+  <input #searchInput type="text" class="form-control" [class.is-hidden]="!vtcDropdown.isOpen" [tabindex]="vtTabIndex"
+         [(ngModel)]="listProvider.searchValue"
+         (keydown.arrowDown)="onKeyDown()"
+         (keydown.arrowUp)="onKeyUp()"
+         (keydown.escape)="close()"
+         (keydown.enter)="close(true)"/>
+  <i class="fas combo-indicator" [ngClass]="{
+    'fa-chevron-down': !vtcDropdown.isOpen,
+    'fa-search': vtcDropdown.isOpen
+  }"></i>
+</vtc-dropdown>

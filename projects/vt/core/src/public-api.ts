@@ -9,3 +9,4 @@ export * from './lib/modules/translations/public-api';
 export * from './lib/modules/table/public-api';
 export * from './lib/modules/modal/public-api';
 export * from './lib/modules/toast/public-api';
+export * from './lib/modules/combobox/public-api';

@@ -23,7 +23,8 @@ export class UsersService {
         return 0;
       }
 
-      let ta: string, tb: string;
+      let ta: string;
+      let tb: string;
       switch (sort.field) {
         case 'firstName':
           ta = a.firstName;
@@ -71,7 +72,34 @@ export class UsersService {
 
     return timer(1500).pipe(
       tap(_ => console.log('REMOTE')),
-      map(x => result)
+      map(_ => result)
+    );
+  }
+
+  searchUsers(query: string): Observable<ReadonlyArray<User>> {
+
+    query = (query || '').trim().toLowerCase();
+    const users = [...USERS];
+
+    const result = !query ? users : users.filter(u => {
+      const fullName = `${u.firstName} ${u.middleName} ${u.lastName}`.toLowerCase();
+      return fullName.includes(query);
+    });
+
+    return timer(1500).pipe(
+      tap(_ => console.log(`QUERY USERS: ${query}`)),
+      map(_ => result)
+    );
+  }
+
+  findUsersByIds(...userIds: number[]): Observable<ReadonlyArray<User>> {
+
+    const users = [...USERS];
+    const result = users.filter(x => userIds.includes(x.id));
+
+    return timer(1500).pipe(
+      tap(_ => console.log(`FIND USERS BY ID: ${userIds}`)),
+      map(_ => result)
     );
   }
 

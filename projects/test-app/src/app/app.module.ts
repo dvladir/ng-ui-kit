@@ -10,15 +10,19 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { TableExampleComponent } from './pages/table-example/table-example.component';
 import { MessagesExampleComponent } from './pages/messages-example/messages-example.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ListExampleComponent } from './pages/list-example/list-example.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestModalComponent,
     TableExampleComponent,
-    MessagesExampleComponent
+    MessagesExampleComponent,
+    ListExampleComponent
   ],
   imports: [
+    FormsModule,
     TranslatePrepareModule,
     BrowserModule,
     BrowserAnimationsModule,

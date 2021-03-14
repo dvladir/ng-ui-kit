@@ -1,0 +1,11 @@
+.is-hidden {
+  display: none;
+}
+
+i.combo-indicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-100%, 75%);
+  color: #7f7f7f;
+}

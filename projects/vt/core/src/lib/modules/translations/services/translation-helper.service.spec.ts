@@ -13,6 +13,10 @@ class MockTranslationLoader implements TranslateLoader {
     MESSAGE: {
       ok: 'Success message',
       withParam: 'Message with params {{a}} and {{b}}'
+    },
+    YES_NO: {
+      yes: 'Yes',
+      no: 'No'
     }
   };
 
@@ -23,6 +27,10 @@ class MockTranslationLoader implements TranslateLoader {
     MESSAGE: {
       ok: 'Все будет хорошо',
       withParam: 'Сообщения с параметрами {{a}} и {{b}}'
+    },
+    YES_NO: {
+      yes: 'Да',
+      no: 'Нет'
     }
   };
 
@@ -72,7 +80,7 @@ describe('TranslationHelperService', () => {
     expect(c).toEqual('Message with params AAA and Hello world');
   });
 
-  it('other translations', (doneFn) => {
+  it('Other translations', (doneFn) => {
     service.languageChange$.subscribe(() => {
       expect(service.currentLang()).toEqual('ru');
 
@@ -86,6 +94,25 @@ describe('TranslationHelperService', () => {
       doneFn();
     });
     expect(service.currentLang()).toEqual('en');
+    service.changeLang('ru');
+  });
+
+  it('Get view', (doneFn) => {
+
+    expect(service.getView('YES_NO')).toEqual({
+      yes: 'Yes',
+      no: 'No'
+    });
+
+    service.languageChange$.subscribe(() => {
+      expect(service.getView('YES_NO')).toEqual({
+        yes: 'Да',
+        no: 'Нет'
+      });
+
+      doneFn();
+    });
+
     service.changeLang('ru');
   });
 

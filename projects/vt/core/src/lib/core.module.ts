@@ -1,29 +1,35 @@
 import { NgModule } from '@angular/core';
-import {CdkTableModule} from '@angular/cdk/table';
 import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {CdkTableModule} from '@angular/cdk/table';
 import {CdkExportModule} from './modules/cdk-export/cdk-export.module';
 import {TranslationsModule} from './modules/translations/translations.module';
 import {TableModule} from './modules/table/table.module';
 import {ModalModule} from './modules/modal/modal.module';
 import {ToastModule} from './modules/toast/toast.module';
+import {ComboboxModule} from './modules/combobox/combobox.module';
 
 @NgModule({
   declarations: [],
   imports: [
+    CommonModule,
+    FormsModule,
     TranslationsModule,
     CdkTableModule,
-    CommonModule,
     ModalModule,
     TableModule,
-    ToastModule
+    ToastModule,
+    ComboboxModule
   ],
   exports: [
     CommonModule,
+    FormsModule,
     TranslationsModule,
     CdkExportModule,
     ModalModule,
     TableModule,
-    ToastModule
+    ToastModule,
+    ComboboxModule
   ]
 })
 export class CoreModule {

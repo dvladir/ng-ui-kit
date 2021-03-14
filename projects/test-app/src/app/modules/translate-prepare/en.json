@@ -13,7 +13,8 @@
   },
   "V_TABS": {
     "table": "Table",
-    "messages": "Messages"
+    "messages": "Messages",
+    "lists": "Lists"
   },
   "YES_NO_CANCEL": {
     "yes": "Yes",

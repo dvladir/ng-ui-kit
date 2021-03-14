@@ -1,0 +1,17 @@
+<div #container class="dropdown-container" cdkOverlayOrigin #origin="cdkOverlayOrigin">
+  <ng-content></ng-content>
+</div>
+<ng-template cdkConnectedOverlay
+             [cdkConnectedOverlayOrigin]="origin"
+             [cdkConnectedOverlayOpen]="isOpen"
+             [cdkConnectedOverlayMinWidth]="containerWidth"
+             [cdkConnectedOverlayDisableClose]="true">
+  <cdk-virtual-scroll-viewport itemSize="50" class="list-group" #scrollViewport>
+    <ng-container *cdkVirtualFor="let item of (listProvider.items$ | async); let i = index">
+      <a class="list-group-item list-group-item-action vt-item" tabindex="-1"
+         [class.active]="activeItem.activeItemIndex === i" (click)="onItemClick(i);false">
+        {{item.label}}
+      </a>
+    </ng-container>
+  </cdk-virtual-scroll-viewport>
+</ng-template>

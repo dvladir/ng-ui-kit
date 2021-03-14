@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {TableExampleComponent} from './pages/table-example/table-example.component';
 import {MessagesExampleComponent} from './pages/messages-example/messages-example.component';
+import {ListExampleComponent} from './pages/list-example/list-example.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   }, {
     path: 'messages',
     component: MessagesExampleComponent
+  }, {
+    path: 'lists',
+    component: ListExampleComponent
   }
 ];
 
