@@ -13,8 +13,15 @@
          (keydown.arrowUp)="onKeyUp()"
          (keydown.escape)="close()"
          (keydown.enter)="close(true)"/>
-  <i class="fas combo-indicator" [ngClass]="{
+  <ng-container *ngIf="listProvider.isPending && !vtcDropdown.isOpen; then progressIndicator; else comboIndicator">
+  </ng-container>
+  <ng-template #progressIndicator>
+    <vtc-indicator classes="fa-2x"></vtc-indicator>
+  </ng-template>
+  <ng-template #comboIndicator>
+    <i class="fas combo-indicator" [ngClass]="{
     'fa-chevron-down': !vtcDropdown.isOpen,
     'fa-search': vtcDropdown.isOpen
   }"></i>
+  </ng-template>
 </vtc-dropdown>

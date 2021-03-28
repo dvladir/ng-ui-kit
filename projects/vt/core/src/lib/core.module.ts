@@ -8,6 +8,7 @@ import {TableModule} from './modules/table/table.module';
 import {ModalModule} from './modules/modal/modal.module';
 import {ToastModule} from './modules/toast/toast.module';
 import {ComboboxModule} from './modules/combobox/combobox.module';
+import {IndicatorModule} from './modules/indicator/indicator.module';
 
 @NgModule({
   declarations: [],
@@ -19,7 +20,8 @@ import {ComboboxModule} from './modules/combobox/combobox.module';
     ModalModule,
     TableModule,
     ToastModule,
-    ComboboxModule
+    ComboboxModule,
+    IndicatorModule
   ],
   exports: [
     CommonModule,
@@ -29,7 +31,8 @@ import {ComboboxModule} from './modules/combobox/combobox.module';
     ModalModule,
     TableModule,
     ToastModule,
-    ComboboxModule
+    ComboboxModule,
+    IndicatorModule
   ]
 })
 export class CoreModule {

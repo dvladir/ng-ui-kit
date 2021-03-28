@@ -21,11 +21,16 @@
             "project": "projects/vt/core/ng-package.json",
             "styles": [
               "projects/vt/core/src/lib-styles.scss"
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/vt/core/src/mixins"
+              ]
+            }
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/vt/core/tsconfig.lib.prod.json"
+              "tsConfig": "projects/vt/core/tsconfig.lib.prod.json",
             }
           }
         },
@@ -35,7 +40,12 @@
             "main": "projects/vt/core/src/test.ts",
             "tsConfig": "projects/vt/core/tsconfig.spec.json",
             "karmaConfig": "projects/vt/core/karma.conf.js",
-            "codeCoverage": true
+            "codeCoverage": true,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/vt/core/src/mixins"
+              ]
+            }
           }
         },
         "lint": {
@@ -79,6 +89,11 @@
             "styles": [
               "projects/test-app/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/vt/core/src/mixins"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

@@ -38,6 +38,8 @@ export class FixedListProvider<T> implements ListProvider<T>{
     takeUntil(this._terminator$)
   );
 
+  readonly isPending: boolean = false;
+
   cleanup(): void {
     this._searchValue$.complete();
     this._terminator$.next();

@@ -1,3 +1,5 @@
+@import "in-progress-backdrop";
+
 .list-group {
   height: 200px;
   width: 100%;
@@ -9,4 +11,8 @@
 
 .dropdown-container {
   position: relative;
+}
+
+.search-in-progress {
+  @include in-progress-backdrop;
 }

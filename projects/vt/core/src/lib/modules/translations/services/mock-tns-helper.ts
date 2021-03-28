@@ -30,6 +30,10 @@ export class MockTnsHelper implements OnDestroy {
     return this.d[key];
   }
 
+  getView(view: string): {[key: string]: string} {
+    return {foo: 'Foo'};
+  }
+
   ngOnDestroy(): void {
     this.languageChange$.complete();
   }

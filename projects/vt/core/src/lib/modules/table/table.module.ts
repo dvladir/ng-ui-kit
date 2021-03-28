@@ -4,6 +4,7 @@ import {CdkExportModule} from '../cdk-export/cdk-export.module';
 import {PaginationComponent} from './components/pagination/pagination.component';
 import {SortableComponent} from './components/sortable/sortable.component';
 import {TableComponent} from './components/table/table.component';
+import {IndicatorModule} from '../indicator/public-api';
 
 
 
@@ -15,7 +16,8 @@ import {TableComponent} from './components/table/table.component';
   ],
   imports: [
     CommonModule,
-    CdkExportModule
+    CdkExportModule,
+    IndicatorModule
   ],
   exports: [
     PaginationComponent,

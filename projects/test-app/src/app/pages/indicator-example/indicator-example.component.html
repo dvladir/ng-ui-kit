@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col col-auto">
+    <button type="button" class="btn btn-primary" (click)="toggleIndicator()">
+      <ng-container *ngIf="isShow; then show; else hide;">
+      </ng-container>
+      <ng-template #show>
+        <vtc-caption value="show_indicator"></vtc-caption>
+      </ng-template>
+      <ng-template #hide>
+        <vtc-caption value="hide_indicator"></vtc-caption>
+      </ng-template>
+    </button>
+  </div>
+  <div class="col col-auto">
+    <vtc-indicator *ngIf="indicator.isInProgress" classes="fa-2x"></vtc-indicator>
+  </div>
+</div>

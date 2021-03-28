@@ -15,7 +15,7 @@
     </a>
   </li>
   <ng-container *ngFor="let item of (pages$ | async)">
-    <li class="page-item t_item" [class.active]="item.isActive">
+    <li class="page-item t_item" [class.active]="item.isActive" [class.disabled]="disabled">
       <a class="page-link" href="#" (click)="goToPage(item.index);false">
         <b>{{item.displayValue}}</b>
       </a>

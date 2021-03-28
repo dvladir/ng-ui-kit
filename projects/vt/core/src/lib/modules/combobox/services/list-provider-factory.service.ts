@@ -7,6 +7,7 @@ import {AsyncListProvider} from './list-providers/async-list-provider';
 import {AsyncDataSource} from '../shared/async-data-source';
 import {ListDataSource} from '../shared/list-data-source';
 import {ValueLabel} from '../shared/value-label';
+import {IndicatorFactoryService} from '../../indicator/public-api';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ import {ValueLabel} from '../shared/value-label';
 export class ListProviderFactoryService {
 
   constructor(
-    private _tnsHelper: TranslationHelperService
+    private _tnsHelper: TranslationHelperService,
+    private _indicatorFactory: IndicatorFactoryService
   ) { }
 
   private isAsyncDataSource(source: ListDataSource): boolean {
@@ -34,7 +36,7 @@ export class ListProviderFactoryService {
     }
 
     if (this.isAsyncDataSource(source)) {
-      return new AsyncListProvider(source as AsyncDataSource<unknown, unknown>);
+      return new AsyncListProvider(source as AsyncDataSource<unknown, unknown>, this._indicatorFactory.create());
     }
 
     if (source instanceof Array) {

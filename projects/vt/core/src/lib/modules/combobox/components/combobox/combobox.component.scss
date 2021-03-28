@@ -2,10 +2,18 @@
   display: none;
 }
 
-i.combo-indicator {
+i.combo-indicator,
+vtc-indicator {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+vtc-indicator {
+  padding: .2rem;
+}
+
+i.combo-indicator {
   transform: translate(-100%, 75%);
   color: #7f7f7f;
 }

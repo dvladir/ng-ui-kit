@@ -4,6 +4,7 @@ import {map} from 'rxjs/operators';
 import {PaginationData} from '../../shared/pagination-data';
 import {SortField} from '../../shared/sort-field';
 import {Sort} from '../../shared/sort.enum';
+import {Indicator} from '../../../indicator/public-api';
 
 export interface LocalPaginationConfig<T> {
   source$: Observable<ReadonlyArray<T>>;
@@ -24,6 +25,7 @@ export class LocalPaginationSetup<T> implements PaginationSetup<T> {
     pageSize$: Observable<number>,
     currentPage$: Observable<number>,
     sort$: Observable<SortField>,
+    indicator?: Indicator
   ): Observable<PaginationData<T>> {
 
     const sortedData$ = combineLatest(

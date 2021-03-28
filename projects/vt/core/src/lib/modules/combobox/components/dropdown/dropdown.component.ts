@@ -46,7 +46,7 @@ export class DropdownComponent implements OnInit, OnDestroy, OnChanges {
   private _container!: ElementRef;
 
   @ViewChild('scrollViewport', {read: CdkVirtualScrollViewport, static: false})
-  private scrollViewport?: CdkVirtualScrollViewport;
+  private _scrollViewport?: CdkVirtualScrollViewport;
 
   readonly isOpen: boolean = false;
 
@@ -70,8 +70,8 @@ export class DropdownComponent implements OnInit, OnDestroy, OnChanges {
       });
 
     this.activeItem.onActiveItemIndexChange$.subscribe(index => {
-      if (index >= 0 && !!this.scrollViewport) {
-        this.scrollViewport.scrollToIndex(index);
+      if (index >= 0 && !!this._scrollViewport) {
+        this._scrollViewport.scrollToIndex(index);
       }
     });
   }

@@ -37,6 +37,19 @@ export class PaginationComponent implements OnInit, OnDestroy {
     return this._state.isImmediateUpdate;
   }
 
+  private _disabled$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  get disabled(): boolean {
+    return this._disabled$.value;
+  }
+
+  @Input() set disabled(value: boolean) {
+    if (value === this.disabled) {
+      return;
+    }
+    this._disabled$.next(value);
+  }
+
   @Input() set isCurrentPageAutoUpdate(value: boolean) {
     this._state.isImmediateUpdate = value;
   }
@@ -138,51 +151,54 @@ export class PaginationComponent implements OnInit, OnDestroy {
       })
     );
 
-  readonly isCanNext$: Observable<boolean> = combineLatest(this._count$, this._state.value$)
+  readonly isCanNext$: Observable<boolean> = combineLatest(this._disabled$, this._count$, this._state.value$)
     .pipe(
-      map(([count, current]) => this.isCanNext(count, current))
+      map(([disabled, count, current]) => this.isCanNext(disabled, count, current))
     );
 
-  readonly isCanPrev$: Observable<boolean> = combineLatest(this._count$, this._state.value$)
+  readonly isCanPrev$: Observable<boolean> = combineLatest(this._disabled$, this._count$, this._state.value$)
     .pipe(
-      map(([count, current]) => this.isCanPrev(count, current))
+      map(([disabled, count, current]) => this.isCanPrev(disabled, count, current))
     );
 
-  private isCanNext(count: number, current: number): boolean {
-    return count > 0 && current < count - 1;
+  private isCanNext(disabled: boolean, count: number, current: number): boolean {
+    return !disabled && count > 0 && current < count - 1;
   }
 
-  private isCanPrev(count: number, current: number): boolean {
-    return count > 0 && current > 0;
+  private isCanPrev(disabled: boolean, count: number, current: number): boolean {
+    return !disabled && count > 0 && current > 0;
   }
 
   goToPage(index: number): void {
+    if (this.disabled) {
+      return;
+    }
     this._state.update(index);
   }
 
   goFirst(): void {
-    if (!this.isCanPrev(this.count, this.current)) {
+    if (!this.isCanPrev(this.disabled, this.count, this.current)) {
       return;
     }
     this.goToPage(0);
   }
 
   goLast(): void {
-    if (!this.isCanNext(this.count, this.current)) {
+    if (!this.isCanNext(this.disabled, this.count, this.current)) {
       return;
     }
     this.goToPage(this.count - 1);
   }
 
   goPrevious(): void {
-    if (!this.isCanPrev(this.count, this.current)) {
+    if (!this.isCanPrev(this.disabled, this.count, this.current)) {
       return;
     }
     this.goToPage(this.current - 1);
   }
 
   goNext(): void {
-    if (!this.isCanNext(this.count, this.current)) {
+    if (!this.isCanNext(this.disabled, this.count, this.current)) {
       return;
     }
     this.goToPage(this.current + 1);

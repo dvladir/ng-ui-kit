@@ -9,12 +9,15 @@
     "confirm": "Confirm",
     "show_modal": "Show modal",
     "local_pagination": "Local pagination",
-    "remote_pagination": "Remote pagination"
+    "remote_pagination": "Remote pagination",
+    "show_indicator": "Show indicator",
+    "hide_indicator": "Hide indicator"
   },
   "V_TABS": {
     "table": "Table",
     "messages": "Messages",
-    "lists": "Lists"
+    "lists": "Lists",
+    "indicators": "Indicators"
   },
   "YES_NO_CANCEL": {
     "yes": "Yes",

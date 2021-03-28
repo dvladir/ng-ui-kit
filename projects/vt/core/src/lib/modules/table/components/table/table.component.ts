@@ -17,6 +17,7 @@ import {Sort} from '../../shared/sort.enum';
 import {PaginationData} from '../../shared/pagination-data';
 import {PaginationConfig, PaginationSetupFactoryService} from '../../services/pagination-setup/pagination-setup-factory.service';
 import {SortStateService} from '../../services/sort-state.service';
+import { Indicator, IndicatorFactoryService } from '../../../indicator/public-api';
 
 @Component({
   selector: 'vtc-table',
@@ -31,9 +32,12 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy, OnChanges {
 
   constructor(
     private _paginationSetupFactory: PaginationSetupFactoryService,
-    private _sortState: SortStateService
+    private _sortState: SortStateService,
+    private _indicatorFactory: IndicatorFactoryService
   ) {
   }
+
+  readonly indicator: Indicator = this._indicatorFactory.create();
 
   @ContentChildren(CdkColumnDef, {descendants: true}) colDef: QueryList<CdkColumnDef> | undefined;
 
@@ -94,7 +98,8 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy, OnChanges {
         this._refresh$,
         this._pageSize$,
         this._currentPage$,
-        this._sortState.valueChange$
+        this._sortState.valueChange$,
+        this.indicator
       )
       .pipe(
         takeUntil(this._terminator$),
