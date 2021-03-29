@@ -7,3 +7,4 @@ export {TranslationHelperService} from './services/translation-helper.service';
 export {SimpleMessage} from './shared/simple-message';
 export {VtMessage} from './shared/vt-message';
 export {DEFAULT_VIEW} from './shared/default-view';
+export {MockTnsHelper} from './services/mock-tns-helper';

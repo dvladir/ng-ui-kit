@@ -2,14 +2,26 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IndicatorComponent } from './indicator.component';
 import {INDICATOR_ICON} from '../../shared/indicator-icon';
+import {Component} from '@angular/core';
+import {By} from '@angular/platform-browser';
+
+@Component({
+  selector: 'vtc-indicator-host-component',
+  template: `
+    <vtc-indicator [classes]="additionalClasses"></vtc-indicator>
+  `
+})
+class IndicatorHostComponent {
+  additionalClasses?: string;
+}
 
 describe('IndicatorComponent', () => {
-  let component: IndicatorComponent;
-  let fixture: ComponentFixture<IndicatorComponent>;
+  let component: IndicatorHostComponent;
+  let fixture: ComponentFixture<IndicatorHostComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IndicatorComponent ],
+      declarations: [ IndicatorComponent, IndicatorHostComponent ],
       providers: [
         {
           provide: INDICATOR_ICON,
@@ -21,12 +33,33 @@ describe('IndicatorComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IndicatorComponent);
+    fixture = TestBed.createComponent(IndicatorHostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Classes change', () => {
+    const iconElement = fixture.debugElement.query(By.css('.fa')).nativeElement as HTMLElement;
+    expect(iconElement.classList.contains('fa-dharmachakra')).toBeTrue();
+    expect(iconElement.classList.contains('fa-2x')).toBeFalse();
+    expect(iconElement.classList.contains('foo')).toBeFalse();
+    expect(iconElement.classList.contains('bar')).toBeFalse();
+    expect(iconElement.classList.contains('baz')).toBeFalse();
+
+    component.additionalClasses = 'fa-2x foo';
+    fixture.detectChanges();
+    expect(iconElement.classList.contains('fa-dharmachakra')).toBeTrue();
+    expect(iconElement.classList.contains('fa-2x')).toBeTrue();
+    expect(iconElement.classList.contains('foo')).toBeTrue();
+    expect(iconElement.classList.contains('bar')).toBeFalse();
+    expect(iconElement.classList.contains('baz')).toBeFalse();
+
+    component.additionalClasses = 'bar baz';
+    fixture.detectChanges();
+    expect(iconElement.classList.contains('fa-dharmachakra')).toBeTrue();
+    expect(iconElement.classList.contains('fa-2x')).toBeFalse();
+    expect(iconElement.classList.contains('foo')).toBeFalse();
+    expect(iconElement.classList.contains('bar')).toBeTrue();
+    expect(iconElement.classList.contains('baz')).toBeTrue();
   });
 });

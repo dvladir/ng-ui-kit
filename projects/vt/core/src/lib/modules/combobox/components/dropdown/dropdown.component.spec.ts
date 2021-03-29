@@ -11,7 +11,6 @@ import {FixedListProvider} from '../../services/list-providers/fixed-list-provid
 import {ListProvider} from '../../services/list-providers/list-provider';
 import {ValueLabel} from '@vt/core';
 import {EmptyListProvider} from '../../services/list-providers/empty-list-provider';
-import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'vtc-dropdown-test-host',
@@ -280,7 +279,7 @@ describe('DropdownComponent', () => {
     const result = await component.close(true);
     expect(result).toBeTrue();
 
-    expect(hostComponent.selectedItem).toEqual({value: 2, label: 'Two'})
+    expect(hostComponent.selectedItem).toEqual({value: 2, label: 'Two'});
     done();
   });
 

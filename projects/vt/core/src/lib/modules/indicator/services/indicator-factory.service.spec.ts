@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { IndicatorFactoryService } from './indicator-factory.service';
+import {IndicatorImpl} from '../shared/indicator-impl';
 
 describe('IndicatorFactoryService', () => {
   let service: IndicatorFactoryService;
@@ -10,7 +11,8 @@ describe('IndicatorFactoryService', () => {
     service = TestBed.inject(IndicatorFactoryService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('create indicator', () => {
+    const indicator = service.create();
+    expect(indicator).toBeInstanceOf(IndicatorImpl);
   });
 });

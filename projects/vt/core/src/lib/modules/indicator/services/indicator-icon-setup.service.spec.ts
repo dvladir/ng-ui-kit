@@ -10,7 +10,9 @@ describe('IndicatorIconSetupService', () => {
     service = TestBed.inject(IndicatorIconSetupService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('Change icon', () => {
+    expect(service.indicatorIcon).toEqual('fa-dharmachakra');
+    service.setup('fa-spinner');
+    expect(service.indicatorIcon).toEqual('fa-spinner');
   });
 });
