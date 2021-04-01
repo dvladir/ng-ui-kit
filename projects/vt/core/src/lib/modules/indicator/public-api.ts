@@ -1,3 +1,4 @@
+export {MockIndicatorFactoryService} from './services/mock-indicator-factory.service';
 export {MockIndicatorImpl} from './shared/mock-indicator-impl';
 export {IndicatorComponent} from './components/indicator/indicator.component';
 export {IndicatorModule} from './indicator.module';
