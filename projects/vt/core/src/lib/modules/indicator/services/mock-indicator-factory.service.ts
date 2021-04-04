@@ -1,4 +1,6 @@
-import {Indicator, IndicatorFactoryService, MockIndicatorImpl} from '@vt/core';
+import {Indicator } from '../shared/indicator';
+import {IndicatorFactoryService} from './indicator-factory.service';
+import {MockIndicatorImpl} from '../shared/mock-indicator-impl';
 
 export class MockIndicatorFactoryService implements IndicatorFactoryService {
 

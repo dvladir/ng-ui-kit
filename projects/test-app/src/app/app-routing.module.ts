@@ -4,6 +4,7 @@ import {TableExampleComponent} from './pages/table-example/table-example.compone
 import {MessagesExampleComponent} from './pages/messages-example/messages-example.component';
 import {ListExampleComponent} from './pages/list-example/list-example.component';
 import {IndicatorExampleComponent} from './pages/indicator-example/indicator-example.component';
+import {DateTimeExampleComponent} from './pages/date-time-example/date-time-example.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
   }, {
     path: 'indicators',
     component: IndicatorExampleComponent
+  }, {
+    path: 'dateTime',
+    component: DateTimeExampleComponent
   }
 ];
 

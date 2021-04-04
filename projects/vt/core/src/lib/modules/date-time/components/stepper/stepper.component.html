@@ -1,0 +1,18 @@
+<div class="list-group">
+  <a  href="#" class="list-group-item list-group-item-action active" (click)="activeItemService.switchPrev();false"
+          [class.disabled]="!activeItemService.isCanPrev">
+    <i class="fa fa-chevron-up"></i>
+  </a>
+  <cdk-virtual-scroll-viewport itemSize="28" class="stepper-content" #scrollViewport>
+    <ng-container *cdkVirtualFor="let item of (listProvider.items$ | async); let i = index; trackBy: fnTrackBy">
+      <a class="list-group-item list-group-item-action" tabindex="-1"
+        [class.active]="activeItemService.activeItemIndex === i" (click)="selectItem(i)">
+        {{item.label}}
+      </a>
+    </ng-container>
+  </cdk-virtual-scroll-viewport>
+  <a href="#" class="list-group-item list-group-item-action active" (click)="activeItemService.switchNext();false"
+     [class.disabled]="!activeItemService.isCanNext">
+    <i class="fa fa-chevron-down"></i>
+  </a>
+</div>

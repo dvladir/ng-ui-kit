@@ -1,7 +1,8 @@
-import {OnDestroy} from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs';
 import {VtMessage} from '../shared/vt-message';
 
+@Injectable()
 export class MockTnsHelper implements OnDestroy {
 
   d: {[key: string]: string} = {

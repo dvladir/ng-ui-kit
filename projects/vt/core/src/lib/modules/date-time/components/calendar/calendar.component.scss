@@ -1,0 +1,20 @@
+@import "variables";
+
+:host {
+  width: 14rem;
+  display: block;
+}
+
+.badge {
+  cursor: pointer;
+  width: 2rem;
+}
+
+.vtc-switch {
+  padding-top: .1rem;
+  padding-bottom: .1rem;
+}
+
+.vtc-gray {
+  color: $gray;
+}

@@ -14,6 +14,7 @@ import { ListExampleComponent } from './pages/list-example/list-example.componen
 import {FormsModule} from '@angular/forms';
 import { IndicatorExampleComponent } from './pages/indicator-example/indicator-example.component';
 import {IndicatorIconSetupService} from '../../../vt/core/src/lib/modules/indicator/services/indicator-icon-setup.service';
+import { DateTimeExampleComponent } from './pages/date-time-example/date-time-example.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {IndicatorIconSetupService} from '../../../vt/core/src/lib/modules/indica
     TableExampleComponent,
     MessagesExampleComponent,
     ListExampleComponent,
-    IndicatorExampleComponent
+    IndicatorExampleComponent,
+    DateTimeExampleComponent
   ],
   imports: [
     FormsModule,

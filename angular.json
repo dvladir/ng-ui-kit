@@ -24,7 +24,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/vt/core/src/mixins"
+                "projects/vt/core/src/styles"
               ]
             }
           },
@@ -43,7 +43,7 @@
             "codeCoverage": true,
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/vt/core/src/mixins"
+                "projects/vt/core/src/styles"
               ]
             }
           }
@@ -91,7 +91,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/vt/core/src/mixins"
+                "projects/vt/core/src/styles"
               ]
             },
             "scripts": []

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col g-1 col-auto">
+    <vtc-stepper [activeItem]="hour" (activeItemChange)="onHourChange($event)" [list]="listHours"></vtc-stepper>
+  </div>
+  <div class="col g-1 col-auto">
+    <vtc-stepper [activeItem]="minute" (activeItemChange)="onMinuteChange($event)" [list]="listMinutes"></vtc-stepper>
+  </div>
+  <div class="col g-1 col-auto">
+    <vtc-stepper [activeItem]="second" (activeItemChange)="onSecondChange($event)" [list]="listSeconds"></vtc-stepper>
+  </div>
+</div>

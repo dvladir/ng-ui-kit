@@ -7,8 +7,9 @@ import {TranslationsModule} from './modules/translations/translations.module';
 import {TableModule} from './modules/table/table.module';
 import {ModalModule} from './modules/modal/modal.module';
 import {ToastModule} from './modules/toast/toast.module';
-import {ComboboxModule} from './modules/combobox/combobox.module';
+import {ListModule} from './modules/list/list.module';
 import {IndicatorModule} from './modules/indicator/indicator.module';
+import {DateTimeModule} from './modules/date-time/date-time.module';
 
 @NgModule({
   declarations: [],
@@ -20,8 +21,9 @@ import {IndicatorModule} from './modules/indicator/indicator.module';
     ModalModule,
     TableModule,
     ToastModule,
-    ComboboxModule,
-    IndicatorModule
+    ListModule,
+    IndicatorModule,
+    DateTimeModule
   ],
   exports: [
     CommonModule,
@@ -31,8 +33,9 @@ import {IndicatorModule} from './modules/indicator/indicator.module';
     ModalModule,
     TableModule,
     ToastModule,
-    ComboboxModule,
-    IndicatorModule
+    ListModule,
+    IndicatorModule,
+    DateTimeModule
   ]
 })
 export class CoreModule {

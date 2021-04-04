@@ -1,0 +1,28 @@
+<div class="row justify-content-between my-1">
+  <div class="col col-auto">
+    <button type="button" class="btn btn-sm btn-primary vtc-switch" (click)="previousMonth()">
+      <i class="fa fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="col col-auto mt-1 g-0">
+    <vtc-caption [value]="(month$ | async)!" view="MONTHS"></vtc-caption>
+    &nbsp;
+    {{year$ | async}}
+  </div>
+  <div class="col col-auto">
+    <button type="button" class="btn btn-sm btn-primary vtc-switch" (click)="nextMonth()">
+      <i class="fa fa-chevron-right"></i>
+    </button>
+  </div>
+</div>
+<div class="row justify-content-between" *ngFor="let r of dates$ | async">
+  <div class="col col-auto g-0" *ngFor="let d of r">
+    <span class="badge rounded-pill" [ngClass]="{
+      'bg-primary': d.isSelected,
+      'bg-light text-dark': !d.isOtherMonth && !d.isSelected,
+      'vtc-gray': d.isOtherMonth && !d.isSelected
+    }" (click)="pickDay(d)">
+      {{d.displayValue}}
+    </span>
+  </div>
+</div>

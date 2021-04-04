@@ -7,7 +7,9 @@
     "@angular/cdk": "^11.1.0",
     "@ngx-translate/core": "^13.0.0",
     "@fortawesome/fontawesome-free": "^5.15.2",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "5.0.0-beta3",
+    "date-fns": "^2.19.0",
+    "imask": "^6.0.7",
     "uuid": "^8.3.2"
   },
   "dependencies": {
