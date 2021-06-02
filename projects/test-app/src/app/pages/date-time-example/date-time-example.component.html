@@ -9,9 +9,24 @@
       {{date}}
     </div>
   </div>
+  <div class="row mt-2">
+    <div class="col">
+      <vtc-date-time-picker [(ngModel)]="dateTimeString"></vtc-date-time-picker>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
-      <vtc-date-time-picker></vtc-date-time-picker>
+      {{dateTimeString}}
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <vtc-date-time-picker [(ngModel)]="dateString" [withTime]="false"></vtc-date-time-picker>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{dateString}}
     </div>
   </div>
 </div>

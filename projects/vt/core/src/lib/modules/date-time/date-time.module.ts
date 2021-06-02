@@ -8,6 +8,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import {TranslationsModule} from '../translations/translations.module';
 import { PickerComponent } from './components/picker/picker.component';
 import { DateTimePickerComponent } from './components/date-time-picker/date-time-picker.component';
+import { DateTimeManualInputDirective } from './directives/date-time-manual-input.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DateTimePickerComponent } from './components/date-time-picker/date-time
     StepperComponent,
     CalendarComponent,
     PickerComponent,
-    DateTimePickerComponent
+    DateTimePickerComponent,
+    DateTimeManualInputDirective
   ],
     imports: [
         CommonModule,

@@ -44,6 +44,7 @@ export class StepperComponent<T> implements OnInit, AfterViewInit, OnChanges, On
   @Input() activeItem?: ValueLabel<T>;
 
   @Output() activeItemChange: EventEmitter<ValueLabel<T>> = new EventEmitter<ValueLabel<T>>();
+  @Output() itemSelected: EventEmitter<unknown> = new EventEmitter<unknown>();
 
   readonly fnTrackBy: TrackByFunction<ValueLabel<T>> = (index, item) => item.value;
 
@@ -86,7 +87,10 @@ export class StepperComponent<T> implements OnInit, AfterViewInit, OnChanges, On
   }
 
   selectItem(i: number): void {
-    setTimeout(() => this.activeItemService.activeItemIndex = i, 100);
+    setTimeout(() => {
+      this.activeItemService.activeItemIndex = i;
+      this.itemSelected.emit();
+    }, 100);
   }
 
   ngOnDestroy(): void {

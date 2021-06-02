@@ -30,7 +30,7 @@ const EMPTY_SIMPLE_TIME: SimpleTime = {hour: 0, minute: 0, second: 0};
   templateUrl: './time.component.html',
   styleUrls: ['./time.component.scss']
 })
-export class TimeComponent implements OnInit {
+export class TimeComponent {
 
   private _simpleTime: SimpleTime = {...EMPTY_SIMPLE_TIME};
 
@@ -47,6 +47,7 @@ export class TimeComponent implements OnInit {
   }
 
   @Output() simpleTimeChange: EventEmitter<SimpleTime> = new EventEmitter<SimpleTime>();
+  @Output() timePicked: EventEmitter<unknown> = new EventEmitter<unknown>();
 
   readonly listHours: ReadonlyArray<ValueLabel<number>> = VALUES.slice(0, 24);
   readonly listMinutes: ReadonlyArray<ValueLabel<number>> = VALUES.slice();
@@ -98,7 +99,8 @@ export class TimeComponent implements OnInit {
     this.changeSimpleTime({second: secondValue.value});
   }
 
-  ngOnInit(): void {
+  onItemSelected(): void {
+    this.timePicked.emit();
   }
 
 }

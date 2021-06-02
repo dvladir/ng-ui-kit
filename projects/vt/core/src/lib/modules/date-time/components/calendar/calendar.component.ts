@@ -1,7 +1,18 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {endOfMonth, startOfMonth, isEqual, endOfWeek, startOfWeek, eachDayOfInterval, getMonth, addMonths, isSameDay} from 'date-fns';
+import {
+  endOfMonth,
+  startOfMonth,
+  isEqual,
+  endOfWeek,
+  startOfWeek,
+  eachDayOfInterval,
+  getMonth,
+  addMonths,
+  isSameDay,
+  isValid
+} from 'date-fns';
 import {BehaviorSubject, combineLatest, Observable, of} from 'rxjs';
-import {distinctUntilChanged, filter, map} from 'rxjs/operators';
+import {distinctUntilChanged, map} from 'rxjs/operators';
 
 export interface CalendarDate {
   date: Date;
@@ -18,22 +29,23 @@ export interface CalendarDate {
 })
 export class CalendarComponent implements OnInit, OnDestroy {
 
-  private _date$: BehaviorSubject<Date> = new BehaviorSubject<Date>(new Date());
+  private _date$: BehaviorSubject<Date | undefined> = new BehaviorSubject<Date | undefined>(undefined);
 
-  get date(): Date {
+  get date(): Date | undefined {
     return this._date$.value;
   }
 
-  @Input() set date(value: Date) {
+  @Input() set date(value: Date | undefined) {
     if (value === this.date) {
       return;
     }
-    this._date$.next(value);
+    this._date$.next(isValid(value) ? value : undefined);
   }
 
   @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
+  @Output() datePicked: EventEmitter<unknown> = new EventEmitter<unknown>();
 
-  private _startOfMonth$: BehaviorSubject<Date> = new BehaviorSubject<Date>(startOfMonth(this.date));
+  private _startOfMonth$: BehaviorSubject<Date> = new BehaviorSubject<Date>(startOfMonth(new Date()));
 
   readonly month$: Observable<string> = this._startOfMonth$.pipe(
     map(x => getMonth(x)),
@@ -63,13 +75,14 @@ export class CalendarComponent implements OnInit, OnDestroy {
     const {date} = day;
     this.date = date;
     this.dateChange.emit(date);
+    this.datePicked.emit();
   }
 
   ngOnInit(): void {
 
     this._date$
       .pipe(
-        filter(x => !!x),
+        map(x => x || new Date()),
         distinctUntilChanged((a, b) => isEqual(a, b)),
         map(x => startOfMonth(x))
       )
@@ -97,7 +110,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
             }
 
             const isOtherMonth = date.getMonth() !== month;
-            const isSelected = isSameDay(date, selectedDate);
+            const isSelected = !!selectedDate ? isSameDay(date, selectedDate) : false;
 
             let displayValue = `${date.getDate()}`;
             displayValue = displayValue.length === 1 ? `0${displayValue}` : displayValue;

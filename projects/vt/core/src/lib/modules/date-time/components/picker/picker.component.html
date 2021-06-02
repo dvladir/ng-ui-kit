@@ -2,10 +2,12 @@
   <div class="card-body">
     <div class="row">
       <div class="col col-auto">
-        <vtc-calendar [date]="date" (dateChange)="handleDateChange($event)"></vtc-calendar>
+        <vtc-calendar [date]="date" (dateChange)="handleDateChange($event)" (datePicked)="handleDatePicked()">
+        </vtc-calendar>
       </div>
-      <div class="col col-auto">
-        <vtc-time [simpleTime]="time" (simpleTimeChange)="handleTimeChange($event)"></vtc-time>
+      <div class="col col-auto" *ngIf="withTime">
+        <vtc-time [simpleTime]="time" (simpleTimeChange)="handleTimeChange($event)" (timePicked)="handleDatePicked()">
+        </vtc-time>
       </div>
     </div>
   </div>

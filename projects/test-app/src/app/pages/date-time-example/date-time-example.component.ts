@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'vta-date-time-example',
   templateUrl: './date-time-example.component.html',
   styleUrls: ['./date-time-example.component.scss']
 })
-export class DateTimeExampleComponent implements OnInit {
-
-  constructor() { }
+export class DateTimeExampleComponent {
 
   date: Date = new Date();
-
-  ngOnInit(): void {
-  }
+  dateTimeString: string = '';
+  dateString: string = '';
 
 }
