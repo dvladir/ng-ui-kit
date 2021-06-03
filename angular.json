@@ -17,22 +17,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/vt/core/tsconfig.lib.json",
-            "project": "projects/vt/core/ng-package.json",
-            "styles": [
-              "projects/vt/core/src/lib-styles.scss"
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "projects/vt/core/src/styles"
-              ]
-            }
+            "project": "projects/vt/core/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/vt/core/tsconfig.lib.prod.json",
+              "tsConfig": "projects/vt/core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/vt/core/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

@@ -1,4 +1,4 @@
-import {Indicator} from '@vt/core';
+import {Indicator} from './indicator';
 import {IsInProgress} from './indicator-impl';
 
 export class MockIndicatorImpl implements Indicator {
