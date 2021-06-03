@@ -4,13 +4,15 @@ import {User, USERS} from '../shared/users-data';
 import {map, tap} from 'rxjs/operators';
 import {PaginationData, Sort, SortField} from '@vt/core';
 
+const TIMEOUT = 500;
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
   loadAllUsers(): Observable<ReadonlyArray<User>> {
-    return timer(1500).pipe(
+    return timer(TIMEOUT).pipe(
       tap(_ => console.log('LOCAL')),
       map(_ => USERS)
     );
@@ -70,7 +72,7 @@ export class UsersService {
 
     const result: PaginationData<User> = {currentPage, pageSize, totalPages, totalElements, elements, sort};
 
-    return timer(1500).pipe(
+    return timer(TIMEOUT).pipe(
       tap(_ => console.log('REMOTE')),
       map(_ => result)
     );
@@ -86,7 +88,7 @@ export class UsersService {
       return fullName.includes(query);
     });
 
-    return timer(1500).pipe(
+    return timer(TIMEOUT).pipe(
       tap(_ => console.log(`QUERY USERS: ${query}`)),
       map(_ => result)
     );
@@ -97,7 +99,7 @@ export class UsersService {
     const users = [...USERS];
     const result = users.filter(x => userIds.includes(x.id));
 
-    return timer(1500).pipe(
+    return timer(TIMEOUT).pipe(
       tap(_ => console.log(`FIND USERS BY ID: ${userIds}`)),
       map(_ => result)
     );

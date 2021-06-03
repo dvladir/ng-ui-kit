@@ -48,6 +48,7 @@ export class ActiveItemService implements OnDestroy {
         this._itemsLength = items.length;
         const index = items.findIndex(x => x.value === this.activeValue);
         this.activeItemIndex = index;
+        this.updatePrevNext();
       });
 
     combineLatest(listProvider.items$, this._activeItemIndex$)

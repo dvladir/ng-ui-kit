@@ -123,6 +123,11 @@ export class DropdownComponent implements OnInit, OnDestroy, OnChanges {
 
     if (!updateValue) {
       (this as IsOpenable).isOpen = false;
+
+      if (!this.listProvider.searchValue) {
+        this.selectedItemChange.emit({label: '', value: undefined});
+      }
+
       return true;
     }
 
