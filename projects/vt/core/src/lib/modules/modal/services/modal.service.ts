@@ -45,7 +45,7 @@ export class ModalService {
       const modalRef: ModalRef<D, R> = new ModalRefImpl(
         modalOptions,
         overlayRef,
-        resolve,
+        resolve as (value?: R) => any,
         this._renderFactory
       );
 

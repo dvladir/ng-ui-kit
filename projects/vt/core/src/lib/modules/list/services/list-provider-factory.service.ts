@@ -46,7 +46,7 @@ export class ListProviderFactoryService {
       }
 
       if (typeof source[0] === 'string' || typeof source[0] === 'number') {
-        const items: ReadonlyArray<ValueLabel<string | number>> = source.map(value => {
+        const items: ReadonlyArray<ValueLabel<string | number>> = (source as ReadonlyArray<string | number>).map(value => {
           const label = value.toString();
           return {value, label};
         });

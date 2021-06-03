@@ -29,7 +29,7 @@ import {DEFAULT_VIEW} from '@vt/core';
           return new Promise((resolve => {
             translateService.setDefaultLang('en');
             translateService.use('en');
-            resolve();
+            resolve(undefined);
           }));
         };
       },
