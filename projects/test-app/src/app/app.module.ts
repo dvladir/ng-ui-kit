@@ -13,7 +13,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ListExampleComponent } from './pages/list-example/list-example.component';
 import {FormsModule} from '@angular/forms';
 import { IndicatorExampleComponent } from './pages/indicator-example/indicator-example.component';
-import {IndicatorIconSetupService} from '../../../vt/core/src/lib/modules/indicator/services/indicator-icon-setup.service';
 import { DateTimeExampleComponent } from './pages/date-time-example/date-time-example.component';
 
 @NgModule({
