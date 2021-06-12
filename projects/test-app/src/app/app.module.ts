@@ -3,7 +3,7 @@ import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {CoreModule} from '@vt/core';
+import {CoreModule, IndicatorIconSetupService} from '@vt/core';
 import {TranslatePrepareModule} from './modules/translate-prepare/translate-prepare.module';
 import { TestModalComponent } from './components/test-modal/test-modal.component';
 import {OverlayModule} from '@angular/cdk/overlay';
@@ -42,7 +42,7 @@ import { DateTimeExampleComponent } from './pages/date-time-example/date-time-ex
       useFactory: (indicatorIconSetup: IndicatorIconSetupService) => {
         return () => new Promise(resolve => {
           indicatorIconSetup.setup('fa-cog');
-          resolve();
+          resolve(true);
         });
       },
       multi: true
