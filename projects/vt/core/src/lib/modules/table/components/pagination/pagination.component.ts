@@ -68,7 +68,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
   }
 
   get current(): number {
-    return this._state.value;
+    return this._state.value || 0;
   }
 
   @Input() set current(value: number) {
@@ -102,7 +102,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
         if (numbers.length <= limit) {
           return { indexesToDisplay: numbers };
         }
-
+        current = current || 0;
         const count = numbers.length;
 
         const leftOffset = Math.floor(limit / 2);
@@ -142,7 +142,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
 
         const result: PageBtnInfo[] = indexesToDisplay.map(index => ({
           index,
-          isActive: index === current,
+          isActive: index === (current || 0),
           displayValue: index + 1
         }));
 
@@ -153,12 +153,12 @@ export class PaginationComponent implements OnInit, OnDestroy {
 
   readonly isCanNext$: Observable<boolean> = combineLatest(this._disabled$, this._count$, this._state.value$)
     .pipe(
-      map(([disabled, count, current]) => this.isCanNext(disabled, count, current))
+      map(([disabled, count, current]) => this.isCanNext(disabled, count, current || 0))
     );
 
   readonly isCanPrev$: Observable<boolean> = combineLatest(this._disabled$, this._count$, this._state.value$)
     .pipe(
-      map(([disabled, count, current]) => this.isCanPrev(disabled, count, current))
+      map(([disabled, count, current]) => this.isCanPrev(disabled, count, current || 0))
     );
 
   private isCanNext(disabled: boolean, count: number, current: number): boolean {

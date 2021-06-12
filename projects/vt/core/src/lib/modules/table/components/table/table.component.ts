@@ -64,7 +64,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy, OnChanges {
 
   private _pageSize$: BehaviorSubject<number> = new BehaviorSubject<number>(10);
 
-  private _currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private _currentPage$: BehaviorSubject<number | undefined> = new BehaviorSubject<number | undefined>(undefined);
 
   private _refresh$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
@@ -97,7 +97,7 @@ export class TableComponent<T> implements AfterViewInit, OnDestroy, OnChanges {
       .setup(
         this._refresh$,
         this._pageSize$,
-        this._currentPage$,
+        this._currentPage$.pipe(map(x => x || 0)),
         this._sortState.valueChange$,
         this.indicator
       )
