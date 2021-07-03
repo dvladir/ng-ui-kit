@@ -5,7 +5,8 @@
         <tr cdk-header-row *cdkHeaderRowDef="displayColumns"></tr>
         <tr cdk-row *cdkRowDef="let row; columns: displayColumns"></tr>
         <tr *cdkNoDataRow>
-          <td [colSpan]="displayColumns.length" class="text-center" vtcCaption="no_data">
+          <td [colSpan]="displayColumns.length" class="text-center">
+            <vtc-caption value="no_data"></vtc-caption>
           </td>
         </tr>
       </table>

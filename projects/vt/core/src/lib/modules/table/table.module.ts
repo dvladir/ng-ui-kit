@@ -5,8 +5,7 @@ import {PaginationComponent} from './components/pagination/pagination.component'
 import {SortableComponent} from './components/sortable/sortable.component';
 import {TableComponent} from './components/table/table.component';
 import {IndicatorModule} from '../indicator/public-api';
-
-
+import {TranslationsModule} from '../translations/translations.module';
 
 @NgModule({
   declarations: [
@@ -14,11 +13,12 @@ import {IndicatorModule} from '../indicator/public-api';
     SortableComponent,
     TableComponent
   ],
-  imports: [
-    CommonModule,
-    CdkExportModule,
-    IndicatorModule
-  ],
+    imports: [
+        CommonModule,
+        CdkExportModule,
+        IndicatorModule,
+        TranslationsModule
+    ],
   exports: [
     PaginationComponent,
     SortableComponent,
