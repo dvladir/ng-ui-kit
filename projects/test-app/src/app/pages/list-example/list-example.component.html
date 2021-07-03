@@ -6,6 +6,12 @@
 </div>
 <div class="row mt-5">
   <div class="col">
+    <vtc-combobox [(ngModel)]="vs.selectedValueAll" dataSource="V_TABS" [showAll]="true"></vtc-combobox>
+    {{vs.selectedValueAll}}
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col">
     <vtc-combobox [(ngModel)]="vs.selectedUserId" [dataSource]="usersProvider"></vtc-combobox>
     {{vs.selectedUserId}}
   </div>

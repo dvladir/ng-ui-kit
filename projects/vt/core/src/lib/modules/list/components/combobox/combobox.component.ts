@@ -40,6 +40,7 @@ export class ComboboxComponent implements OnDestroy, OnChanges, ControlValueAcce
     private _listProviderFactory: ListProviderFactoryService,
   ) { }
 
+  @Input() showAll: boolean = false;
   @Input() dataSource?: ListDataSource;
   @Input() vtTabIndex?: number;
 

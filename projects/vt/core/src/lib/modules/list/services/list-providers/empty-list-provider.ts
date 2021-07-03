@@ -7,6 +7,8 @@ export class EmptyListProvider implements ListProvider<unknown>{
 
   searchValue: string = '';
 
+  showAll: boolean = false;
+
   readonly isPending: boolean = false;
 
   cleanup(): void {

@@ -18,6 +18,7 @@ import {Subject} from 'rxjs';
 import {ActiveItemService} from '../../services/active-item.service';
 import {ViewportRuler} from '@angular/cdk/overlay';
 import {map, take, takeUntil} from 'rxjs/operators';
+import {AsyncListProvider} from '../../services/list-providers/async-list-provider';
 
 interface IsOpenable {
   isOpen: boolean;
@@ -55,6 +56,8 @@ export class DropdownComponent implements OnInit, OnDestroy, OnChanges {
   @Input() selectedItem?: ValueLabel<unknown>;
   @Output() selectedItemChange: EventEmitter<ValueLabel<unknown>> = new EventEmitter<ValueLabel<unknown>>();
 
+  @Input() showAll?: boolean;
+
   containerWidth: number = 0;
 
   ngOnInit(): void {
@@ -85,6 +88,7 @@ export class DropdownComponent implements OnInit, OnDestroy, OnChanges {
     const lp = changes.listProvider;
     if (!!lp && lp.currentValue !== lp.previousValue) {
       this.activeItem.setup(lp.currentValue);
+      lp.currentValue.showAll = this.showAll;
     }
 
     const si = changes.selectedItem;
@@ -103,6 +107,11 @@ export class DropdownComponent implements OnInit, OnDestroy, OnChanges {
       } else if (!value) {
         this.selectedItemChange.emit({value, label: ''});
       }
+    }
+
+    const sa = changes.showAll;
+    if (!!sa && sa.currentValue !== sa.previousValue) {
+      this.listProvider.showAll = sa.currentValue;
     }
   }
 

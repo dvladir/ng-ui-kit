@@ -1,4 +1,4 @@
-<vtc-dropdown #vtcDropdown="vtcDropdown" [listProvider]="listProvider" [(selectedItem)]="selectedItem">
+<vtc-dropdown #vtcDropdown="vtcDropdown" [listProvider]="listProvider" [(selectedItem)]="selectedItem" [showAll]="showAll">
   <div #readonlyView class="form-control" [class.is-hidden]="vtcDropdown.isOpen" [tabIndex]="vtTabIndex"
        [attr.readonly]="readonlyState"
        (click)="open()"

@@ -13,6 +13,8 @@ export class AsyncListProvider<ID, ITEM> implements ListProvider<ID>{
   ) {
   }
 
+  showAll: boolean = false;
+
   get searchValue(): string {
     return this._searchValue$.value;
   }

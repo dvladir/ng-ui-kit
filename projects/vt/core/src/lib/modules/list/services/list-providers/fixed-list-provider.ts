@@ -1,4 +1,4 @@
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs';
 import {ListProvider} from './list-provider';
 import {ValueLabel} from '../../../../_common/value-label';
 import {distinctUntilChanged, map, shareReplay, takeUntil, throttleTime} from 'rxjs/operators';
@@ -24,16 +24,42 @@ export class FixedListProvider<T> implements ListProvider<T>{
     this._searchValue$.next(value);
   }
 
-  readonly items$: Observable<ReadonlyArray<ValueLabel<T>>> = this._searchValue$.pipe(
-    throttleTime(100),
-    map(search => (search || '').toLowerCase().trim()),
-    distinctUntilChanged(),
-    map(search => this._allItems.filter(x => {
-      if (!search) {
-        return true;
+  private _showAll$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  get showAll(): boolean {
+    return this._showAll$.value;
+  }
+
+  set showAll(value: boolean) {
+    if (value === this.showAll) {
+      return;
+    }
+    this._showAll$.next(value);
+  }
+
+  readonly items$: Observable<ReadonlyArray<ValueLabel<T>>> = combineLatest(
+    this._searchValue$.pipe(
+      throttleTime(100),
+      map(search => (search || '').toLowerCase().trim()),
+      distinctUntilChanged()
+    ),
+    this._showAll$
+  ).pipe(
+    map(([searchValue, showAll]) => {
+      if (!searchValue) {
+        return [...this._allItems];
       }
-      return (x?.label || '').toLowerCase().includes(search);
-    })),
+
+      if (showAll) {
+        const item = this._allItems.find(x => (x?.label || '').toLowerCase() === searchValue);
+        if (item) {
+          return [...this._allItems];
+        }
+      }
+
+      const result = this._allItems.filter(x => (x?.label || '').toLowerCase().includes(searchValue));
+      return result;
+    }),
     shareReplay(1),
     takeUntil(this._terminator$)
   );

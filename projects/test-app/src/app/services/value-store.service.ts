@@ -5,5 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class ValueStoreService {
   selectedValue?: string;
+  selectedValueAll?: string;
   selectedUserId?: number;
 }
