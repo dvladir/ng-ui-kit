@@ -39,4 +39,8 @@ export class ToastService {
     const text = this._translate.getTranslation(vtMessage, messageView);
     this._logic.addMessage({messageType, text});
   }
+
+  removeAll(): void {
+    this._logic.removeAll();
+  }
 }
