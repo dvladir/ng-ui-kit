@@ -11,14 +11,17 @@
     "local_pagination": "Local pagination",
     "remote_pagination": "Remote pagination",
     "show_indicator": "Show indicator",
-    "hide_indicator": "Hide indicator"
+    "hide_indicator": "Hide indicator",
+    "enter_email": "Enter email",
+    "enter_number": "Enter number"
   },
   "V_TABS": {
     "table": "Table",
     "messages": "Messages",
     "lists": "Lists",
     "indicators": "Indicators",
-    "dateTime": "Date & Time"
+    "dateTime": "Date & Time",
+    "masks": "Masks"
   },
   "YES_NO_CANCEL": {
     "yes": "Yes",

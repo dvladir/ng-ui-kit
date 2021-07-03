@@ -14,6 +14,7 @@ import { ListExampleComponent } from './pages/list-example/list-example.componen
 import {FormsModule} from '@angular/forms';
 import { IndicatorExampleComponent } from './pages/indicator-example/indicator-example.component';
 import { DateTimeExampleComponent } from './pages/date-time-example/date-time-example.component';
+import { MasksExampleComponent } from './pages/masks-example/masks-example.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DateTimeExampleComponent } from './pages/date-time-example/date-time-ex
     MessagesExampleComponent,
     ListExampleComponent,
     IndicatorExampleComponent,
-    DateTimeExampleComponent
+    DateTimeExampleComponent,
+    MasksExampleComponent
   ],
   imports: [
     FormsModule,

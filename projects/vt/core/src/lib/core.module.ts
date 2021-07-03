@@ -10,6 +10,7 @@ import {ToastModule} from './modules/toast/toast.module';
 import {ListModule} from './modules/list/list.module';
 import {IndicatorModule} from './modules/indicator/indicator.module';
 import {DateTimeModule} from './modules/date-time/date-time.module';
+import {MaskModule} from './modules/mask/mask.module';
 
 @NgModule({
   declarations: [],
@@ -23,7 +24,8 @@ import {DateTimeModule} from './modules/date-time/date-time.module';
     ToastModule,
     ListModule,
     IndicatorModule,
-    DateTimeModule
+    DateTimeModule,
+    MaskModule
   ],
   exports: [
     CommonModule,
@@ -35,7 +37,8 @@ import {DateTimeModule} from './modules/date-time/date-time.module';
     ToastModule,
     ListModule,
     IndicatorModule,
-    DateTimeModule
+    DateTimeModule,
+    MaskModule
   ]
 })
 export class CoreModule {

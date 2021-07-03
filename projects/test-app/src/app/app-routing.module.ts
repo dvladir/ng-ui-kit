@@ -5,6 +5,7 @@ import {MessagesExampleComponent} from './pages/messages-example/messages-exampl
 import {ListExampleComponent} from './pages/list-example/list-example.component';
 import {IndicatorExampleComponent} from './pages/indicator-example/indicator-example.component';
 import {DateTimeExampleComponent} from './pages/date-time-example/date-time-example.component';
+import {MasksExampleComponent} from './pages/masks-example/masks-example.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,9 @@ const routes: Routes = [
   }, {
     path: 'dateTime',
     component: DateTimeExampleComponent
+  }, {
+    path: 'masks',
+    component: MasksExampleComponent
   }
 ];
 
