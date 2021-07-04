@@ -41,6 +41,14 @@ export class MessagesExampleComponent {
     return undefined;
   }
 
+  async message(): Promise<unknown> {
+    const message = 'info_message';
+    const view = 'MESSAGES';
+    const result = await this._modalService.openMessage({message, view});
+    console.log('Message:', result);
+    return undefined;
+  }
+
   successMessage(): void {
     this._toastService.okMessage('success_message');
   }

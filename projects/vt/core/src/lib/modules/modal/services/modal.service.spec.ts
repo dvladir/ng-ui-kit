@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 
 import {ModalService} from './modal.service';
-import {ButtonDescription, Choice, CoreModule, ModalRef, MultiChoiceModalComponent, MultiChoiceModalData} from '@vt/core';
+import {ButtonDescription, Choice, CoreModule, MultiChoiceModalComponent, MultiChoiceModalData} from '@vt/core';
 import {ModalOptions} from '../shared/modal-options';
 import {OverlayModule} from '@angular/cdk/overlay';
 
@@ -70,9 +70,9 @@ describe('ModalService', () => {
 
     const view = 'YES_NO_CANCEL';
     const buttons: ButtonDescription<Choice>[] = [
-      {caption: {message: 'cancel', view}, value: Choice.cancel, btnClass: 'btn btn-outline-secondary', isDefault: true},
-      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-danger'},
       {caption: {message: 'yes',    view}, value: Choice.yes,    btnClass: 'btn btn-primary'},
+      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-danger'},
+      {caption: {message: 'cancel', view}, value: Choice.cancel, btnClass: 'btn btn-outline-secondary', isDefault: true}
     ];
 
     const message = 'foo';
@@ -87,8 +87,8 @@ describe('ModalService', () => {
 
     const view = 'YES_NO_CANCEL';
     const buttons: ButtonDescription<Choice>[] = [
-      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-outline-secondary', isDefault: true},
-      {caption: {message: 'yes',    view}, value: Choice.yes,    btnClass: 'btn btn-primary'}
+      {caption: {message: 'yes',    view}, value: Choice.yes,    btnClass: 'btn btn-primary'},
+      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-outline-secondary', isDefault: true}
     ];
 
     const message = 'foo';

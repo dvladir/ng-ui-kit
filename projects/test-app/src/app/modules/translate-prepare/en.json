@@ -6,6 +6,7 @@
     "middle_name": "Middle Name",
     "no_data": "No data available",
     "choose": "Choose",
+    "message": "Message",
     "confirm": "Confirm",
     "show_modal": "Show modal",
     "local_pagination": "Local pagination",
@@ -24,6 +25,7 @@
     "masks": "Masks"
   },
   "YES_NO_CANCEL": {
+    "ok": "Ok",
     "yes": "Yes",
     "no": "No",
     "cancel": "Cancel"

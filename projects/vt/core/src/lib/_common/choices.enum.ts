@@ -1,5 +1,6 @@
 export enum Choice {
   yes = 'yes',
   no = 'no',
-  cancel = 'cancel'
+  cancel = 'cancel',
+  ok = 'ok'
 }

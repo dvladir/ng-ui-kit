@@ -38,7 +38,8 @@
             "codeCoverage": true,
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/vt/core/src/styles"
+                "projects/vt/core",
+                "node_modules/bootstrap"
               ]
             }
           }
@@ -85,7 +86,8 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/vt/core/src/styles"
+                "projects/vt/core",
+                "node_modules/bootstrap"
               ]
             },
             "scripts": [],

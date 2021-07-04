@@ -80,9 +80,9 @@ export class ModalService {
     const view = 'YES_NO_CANCEL';
 
     const buttons: ButtonDescription<Choice>[] = [
-      {caption: {message: 'cancel', view}, value: Choice.cancel, btnClass: 'btn btn-outline-secondary', isDefault: true},
-      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-danger'},
       {caption: {message: 'yes',    view}, value: Choice.yes,    btnClass: 'btn btn-primary'},
+      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-danger'},
+      {caption: {message: 'cancel', view}, value: Choice.cancel, btnClass: 'btn btn-outline-secondary', isDefault: true}
     ];
 
     return this.openMultiChoice({message, buttons});
@@ -92,10 +92,20 @@ export class ModalService {
     const view = 'YES_NO_CANCEL';
 
     const buttons: ButtonDescription<Choice>[] = [
-      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-outline-secondary', isDefault: true},
       {caption: {message: 'yes',    view}, value: Choice.yes,    btnClass: 'btn btn-primary'},
+      {caption: {message: 'no',     view}, value: Choice.no,     btnClass: 'btn btn-outline-secondary', isDefault: true},
     ];
 
     return this.openMultiChoice({message, buttons}).then(x => x === Choice.yes);
+  }
+
+  openMessage(message: VtMessage): Promise<boolean> {
+    const view = 'YES_NO_CANCEL';
+
+    const buttons: ButtonDescription<Choice>[] = [
+      {caption: {message: 'ok',    view}, value: Choice.ok,    btnClass: 'btn btn-primary', isDefault: true}
+    ];
+
+    return this.openMultiChoice({message, buttons}).then(() => true);
   }
 }

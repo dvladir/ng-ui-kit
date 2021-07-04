@@ -1,0 +1,17 @@
+@import "./../common/variables";
+
+.vtc-error-field {
+  border-color: $error-color !important;
+}
+
+input.ng-dirty.ng-invalid {
+  @extend .vtc-error-field;
+}
+
+vtc-combobox.ng-dirty.ng-invalid .form-control {
+  @extend .vtc-error-field;
+}
+
+vtc-date-time-picker.ng-dirty.ng-invalid .form-control {
+  @extend .vtc-error-field;
+}

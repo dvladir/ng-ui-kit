@@ -1,7 +1,7 @@
 import {combineLatest, Observable} from 'rxjs';
 import {PaginationSetup} from './pagination-setup';
 import {PaginationData} from '../../shared/pagination-data';
-import {switchMap, tap} from 'rxjs/operators';
+import {distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {SortField} from '../../shared/sort-field';
 import {Indicator} from '../../../indicator/public-api';
 
@@ -32,7 +32,8 @@ export class RemotePaginationSetup<T> implements PaginationSetup<T>{
           }
         }),
         switchMap(([pageSize, currentPage, sort]) => this._config.getData(pageSize, currentPage, sort)),
-        tap(() => {
+        distinctUntilChanged(),
+        tap((data) => {
           if (indicator) {
             indicator.hide();
           }
