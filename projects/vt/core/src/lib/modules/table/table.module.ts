@@ -6,12 +6,14 @@ import {SortableComponent} from './components/sortable/sortable.component';
 import {TableComponent} from './components/table/table.component';
 import {IndicatorModule} from '../indicator/public-api';
 import {TranslationsModule} from '../translations/translations.module';
+import { ActionListComponent } from './components/action-list/action-list.component';
 
 @NgModule({
   declarations: [
     PaginationComponent,
     SortableComponent,
-    TableComponent
+    TableComponent,
+    ActionListComponent
   ],
     imports: [
         CommonModule,
@@ -22,7 +24,8 @@ import {TranslationsModule} from '../translations/translations.module';
   exports: [
     PaginationComponent,
     SortableComponent,
-    TableComponent
+    TableComponent,
+    ActionListComponent
   ]
 })
 export class TableModule { }

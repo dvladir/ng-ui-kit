@@ -1,0 +1,12 @@
+<div class="invoke-container" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  <ng-content></ng-content>
+</div>
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+  <div class="list-group">
+    <ng-container *ngFor="let item of items; trackBy: trackByFn">
+      <a href="#" class="list-group-item list-group-item-action" (click)="choose(item.key)">
+        <vtc-caption [value]="item.label"></vtc-caption>
+      </a>
+    </ng-container>
+  </div>
+</ng-template>

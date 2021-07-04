@@ -1,3 +1,4 @@
+export {ActionListComponent} from './components/action-list/action-list.component';
 export {PaginationComponent} from './components/pagination/pagination.component';
 export {TableComponent} from './components/table/table.component';
 export {SortableComponent} from './components/sortable/sortable.component';
