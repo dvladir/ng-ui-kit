@@ -11,6 +11,7 @@ import {ListModule} from './modules/list/list.module';
 import {IndicatorModule} from './modules/indicator/indicator.module';
 import {DateTimeModule} from './modules/date-time/date-time.module';
 import {MaskModule} from './modules/mask/mask.module';
+import { FormExtModule } from './modules/form-ext/form-ext.module';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import {MaskModule} from './modules/mask/mask.module';
     ListModule,
     IndicatorModule,
     DateTimeModule,
-    MaskModule
+    MaskModule,
+    FormExtModule
   ],
   exports: [
     CommonModule,
@@ -38,7 +40,8 @@ import {MaskModule} from './modules/mask/mask.module';
     ListModule,
     IndicatorModule,
     DateTimeModule,
-    MaskModule
+    MaskModule,
+    FormExtModule
   ]
 })
 export class CoreModule {
