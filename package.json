@@ -1,7 +1,11 @@
 {
   "name": "@dvladir/ng-ui-kit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "GPL3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvladir/ng-ui-kit"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
