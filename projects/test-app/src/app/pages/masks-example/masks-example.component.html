@@ -1,18 +1,18 @@
 <div class="row">
   <div class="col">
-    <input type="text" class="form-control" [(ngModel)]="vs.email" vtcEmail vtcPlaceholderCaption="enter_email"/>
+    <input type="text" class="form-control" [(ngModel)]="vs.email" dvEmail dvPlaceholderCaption="enter_email"/>
     {{vs.email}}
   </div>
 </div>
 <div class="row mt-5">
   <div class="col">
-    <input type="text" class="form-control" [(ngModel)]="vs.phone" [vtcPhone]="maskPhone"/>
+    <input type="text" class="form-control" [(ngModel)]="vs.phone" [dvPhone]="maskPhone"/>
     {{vs.phone}}
   </div>
 </div>
 <div class="row mt-5">
   <div class="col">
-    <input type="text" class="form-control" [(ngModel)]="vs.year" [vtcNumber] vtcPlaceholderCaption="enter_number"/>
+    <input type="text" class="form-control" [(ngModel)]="vs.year" [dvNumber] dvPlaceholderCaption="enter_number"/>
     {{vs.year}}
   </div>
 </div>

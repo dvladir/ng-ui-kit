@@ -9,8 +9,8 @@ interface ErrorContainer {
 }
 
 @Directive({
-  selector: '[vtcErrSrc][formControl],[vtcErrSrc][formControlName],[vtcErrSrc][ngModel]',
-  exportAs: 'VtcErrSrc'
+  selector: '[dvErrSrc][formControl],[dvErrSrc][formControlName],[dvErrSrc][ngModel]',
+  exportAs: 'DvErrSrc'
 })
 export class ErrorSourceDirective implements OnInit, OnDestroy {
 

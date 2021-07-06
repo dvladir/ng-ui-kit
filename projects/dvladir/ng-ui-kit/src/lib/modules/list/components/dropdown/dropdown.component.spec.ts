@@ -13,11 +13,11 @@ import {ValueLabel} from '../../../../_common/value-label';
 import {EmptyListProvider} from '../../services/list-providers/empty-list-provider';
 
 @Component({
-  selector: 'vtc-dropdown-test-host',
+  selector: 'dv-dropdown-test-host',
   template: `
-    <vtc-dropdown [(selectedItem)]="selectedItem" [listProvider]="listProvider">
+    <dv-dropdown [(selectedItem)]="selectedItem" [listProvider]="listProvider">
         Dropdown component host
-    </vtc-dropdown>
+    </dv-dropdown>
   `
 })
 class DropdownTestHostComponent {
@@ -220,14 +220,14 @@ describe('DropdownComponent', () => {
     expect(activeItemService.activeItemIndex).toBe(-1);
     expect(component.close).not.toHaveBeenCalled();
 
-    let items = componentRef.queryAll(By.css('a.vt-item'));
+    let items = componentRef.queryAll(By.css('a.dv-item'));
     expect(items.length).toBe(0);
 
     component.open();
     fixture.autoDetectChanges();
     tick(500);
 
-    items = componentRef.queryAll(By.css('a.vt-item'));
+    items = componentRef.queryAll(By.css('a.dv-item'));
     expect(items.length).toBe(3);
 
     (items[1].nativeElement as HTMLElement).click();

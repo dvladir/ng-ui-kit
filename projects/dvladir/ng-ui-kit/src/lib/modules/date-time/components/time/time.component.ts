@@ -26,7 +26,7 @@ const isSimpleTimeEqual = (a: SimpleTime, b: SimpleTime): boolean => {
 const EMPTY_SIMPLE_TIME: SimpleTime = {hour: 0, minute: 0, second: 0};
 
 @Component({
-  selector: 'vtc-time',
+  selector: 'dv-time',
   templateUrl: './time.component.html',
   styleUrls: ['./time.component.scss']
 })

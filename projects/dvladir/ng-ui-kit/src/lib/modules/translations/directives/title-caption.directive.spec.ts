@@ -7,11 +7,11 @@ import {Component} from '@angular/core';
 
 
 @Component({
-  selector: 'vtc-test',
+  selector: 'dv-test',
   template: `
-    <span id="spA" vtcTitleCaption="hello" sfx=":"></span>
-    <span id="spB" vtcTitleCaption="ok" view="MESSAGE" pfx="LOL "></span>
-    <span id="spC" [vtcTitleCaption]="simpleMessage"></span>
+    <span id="spA" dvTitleCaption="hello" sfx=":"></span>
+    <span id="spB" dvTitleCaption="ok" view="MESSAGE" pfx="LOL "></span>
+    <span id="spC" [dvTitleCaption]="simpleMessage"></span>
   `
 })
 class TestComponent {

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'vtc-modal-footer',
+  selector: 'dv-modal-footer',
   template: `<ng-content></ng-content>`
 })
 export class ModalFooterComponent {

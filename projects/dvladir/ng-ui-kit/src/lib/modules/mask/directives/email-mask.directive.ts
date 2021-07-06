@@ -6,7 +6,7 @@ import IMask from 'imask';
 const WHOLE_EMAIL_CHECK: RegExp = /^[A-Za-z0-9_\.-]+@[A-Za-z0-9-]+\.[A-Za-z]+$/;
 
 @Directive({
-  selector: '[vtcEmail]',
+  selector: '[dvEmail]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

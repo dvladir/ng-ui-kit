@@ -1,32 +1,32 @@
-<vtc-table [config]="paginationConfig" [trackBy]="trackByFn">
+<dv-table [config]="paginationConfig" [trackBy]="trackByFn">
   <ng-container cdkColumnDef="firstName">
-    <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
-      <vtc-caption value="first_name"></vtc-caption>
+    <th cdk-header-cell *cdkHeaderCellDef dvSortable>
+      <dv-caption value="first_name"></dv-caption>
     </th>
     <td cdk-cell *cdkCellDef="let element">{{element.firstName}}</td>
   </ng-container>
   <ng-container cdkColumnDef="middleName">
-    <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
-      <vtc-caption value="middle_name"></vtc-caption>
+    <th cdk-header-cell *cdkHeaderCellDef dvSortable>
+      <dv-caption value="middle_name"></dv-caption>
     </th>
     <td cdk-cell *cdkCellDef="let element">{{element.middleName}}</td>
   </ng-container>
   <ng-container cdkColumnDef="lastName">
-    <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
-      <vtc-caption value="last_name"></vtc-caption>
+    <th cdk-header-cell *cdkHeaderCellDef dvSortable>
+      <dv-caption value="last_name"></dv-caption>
     </th>
     <td cdk-cell *cdkCellDef="let element">{{element.lastName}}</td>
   </ng-container>
-</vtc-table>
+</dv-table>
 <div class="row">
   <div class="col">
     <button type="button" class="btn btn-primary" (click)="togglePaginationType()">
       <ng-container *ngIf="isLocal; then pLocal; else pRemote"></ng-container>
       <ng-template #pLocal>
-        <vtc-caption value="local_pagination"></vtc-caption>
+        <dv-caption value="local_pagination"></dv-caption>
       </ng-template>
       <ng-template #pRemote>
-        <vtc-caption value="remote_pagination"></vtc-caption>
+        <dv-caption value="remote_pagination"></dv-caption>
       </ng-template>
     </button>
   </div>

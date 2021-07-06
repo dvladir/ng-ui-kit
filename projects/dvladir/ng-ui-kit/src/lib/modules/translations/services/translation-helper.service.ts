@@ -2,7 +2,7 @@ import {Inject, Injectable, Optional} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Observable} from 'rxjs';
 import {DEFAULT_VIEW} from '../shared/default-view';
-import {VtMessage} from '../shared/vt-message';
+import {DvMessage} from '../shared/dv-message';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class TranslationHelperService {
     return this._translateService.instant(view) || {};
   }
 
-  getTranslation(message: VtMessage, view?: string): string {
+  getTranslation(message: DvMessage, view?: string): string {
 
     if (!message) {
       return '';

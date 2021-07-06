@@ -2,7 +2,7 @@ import {Component, Inject, Input, OnChanges, SimpleChanges} from '@angular/core'
 import {INDICATOR_ICON} from '../../shared/indicator-icon';
 
 @Component({
-  selector: 'vtc-indicator',
+  selector: 'dv-indicator',
   templateUrl: './indicator.component.html'
 })
 export class IndicatorComponent implements OnChanges {

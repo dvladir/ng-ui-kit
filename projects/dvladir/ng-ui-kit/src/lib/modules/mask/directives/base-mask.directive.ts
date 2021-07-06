@@ -4,7 +4,7 @@ import {noop} from 'rxjs';
 import IMask from 'imask';
 
 @Directive({
-  selector: '[vtcBaseMask]'
+  selector: '[dvBaseMask]'
 })
 export abstract class BaseMaskDirective<T> implements AfterViewInit, OnChanges, OnDestroy, ControlValueAccessor {
 

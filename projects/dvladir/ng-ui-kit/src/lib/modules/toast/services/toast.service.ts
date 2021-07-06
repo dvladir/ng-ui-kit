@@ -1,6 +1,6 @@
 import {Inject, Injectable, Optional} from '@angular/core';
 import {MSG_DEFAULT_VIEW} from '../shared/tokens';
-import {TranslationHelperService, VtMessage} from '../../translations/public-api';
+import {TranslationHelperService, DvMessage} from '../../translations/public-api';
 import {ToastLogicService} from './toast-logic.service';
 import {MessageType} from '../shared/message-type.enum';
 
@@ -19,24 +19,24 @@ export class ToastService {
 
   private _msgDefaultView: string;
 
-  errorMessage(vtMessage: VtMessage, messageView?: string): void {
-    this.typedMessage(MessageType.err, vtMessage, messageView);
+  errorMessage(dvMessage: DvMessage, messageView?: string): void {
+    this.typedMessage(MessageType.err, dvMessage, messageView);
   }
 
-  okMessage(vtMessage: VtMessage, messageView?: string): void {
-    this.typedMessage(MessageType.ok, vtMessage, messageView);
+  okMessage(dvMessage: DvMessage, messageView?: string): void {
+    this.typedMessage(MessageType.ok, dvMessage, messageView);
   }
 
-  infoMessage(vtMessage: VtMessage, messageView?: string): void {
-    this.typedMessage(MessageType.info, vtMessage, messageView);
+  infoMessage(dvMessage: DvMessage, messageView?: string): void {
+    this.typedMessage(MessageType.info, dvMessage, messageView);
   }
 
-  warnMessage(vtMessage: VtMessage, messageView?: string): void {
-    this.typedMessage(MessageType.warn, vtMessage, messageView);
+  warnMessage(dvMessage: DvMessage, messageView?: string): void {
+    this.typedMessage(MessageType.warn, dvMessage, messageView);
   }
 
-  typedMessage(messageType: MessageType, vtMessage: VtMessage, messageView: string = this._msgDefaultView): void {
-    const text = this._translate.getTranslation(vtMessage, messageView);
+  typedMessage(messageType: MessageType, dvMessage: DvMessage, messageView: string = this._msgDefaultView): void {
+    const text = this._translate.getTranslation(dvMessage, messageView);
     this._logic.addMessage({messageType, text});
   }
 

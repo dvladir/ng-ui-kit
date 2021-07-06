@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {BaseModalComponent, ModalRef} from '@dvladir/ng-ui-kit';
 
 @Component({
-  selector: 'vta-test-modal',
+  selector: 'dva-test-modal',
   templateUrl: './test-modal.component.html',
   styleUrls: ['./test-modal.component.scss']
 })

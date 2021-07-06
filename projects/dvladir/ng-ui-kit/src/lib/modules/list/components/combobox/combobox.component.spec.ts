@@ -10,9 +10,9 @@ import {By} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'vtc-combobox-test-host',
+  selector: 'dv-combobox-test-host',
   template: `
-    <vtc-combobox [(ngModel)]="value" [dataSource]="list" [disabled]="isDisabled"></vtc-combobox>
+    <dv-combobox [(ngModel)]="value" [dataSource]="list" [disabled]="isDisabled"></dv-combobox>
   `
 })
 class ComboboxTestHostComponent {

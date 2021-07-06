@@ -6,11 +6,11 @@ import {TranslationHelperService} from '../services/translation-helper.service';
 import {MockTnsHelper} from '../services/mock-tns-helper';
 
 @Component({
-  selector: 'vtc-test',
+  selector: 'dv-test',
   template: `
-    <input type="text" id="iptA" vtcPlaceholderCaption="hello" sfx=":"/>
-    <input type="text" id="iptB" vtcPlaceholderCaption="ok" view="MESSAGE" pfx="LOL "/>
-    <input type="text" id="iptC" [vtcPlaceholderCaption]="simpleMessage"/>
+    <input type="text" id="iptA" dvPlaceholderCaption="hello" sfx=":"/>
+    <input type="text" id="iptB" dvPlaceholderCaption="ok" view="MESSAGE" pfx="LOL "/>
+    <input type="text" id="iptC" [dvPlaceholderCaption]="simpleMessage"/>
   `
 })
 class TestComponent {

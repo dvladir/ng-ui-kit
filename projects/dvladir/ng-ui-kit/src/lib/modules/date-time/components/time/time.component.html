@@ -1,23 +1,23 @@
 <div class="row">
   <div class="col g-1 col-auto">
-    <vtc-stepper [activeItem]="hour"
+    <dv-stepper [activeItem]="hour"
                  [list]="listHours"
                  (activeItemChange)="onHourChange($event)"
                  (itemSelected)="onItemSelected()">
-    </vtc-stepper>
+    </dv-stepper>
   </div>
   <div class="col g-1 col-auto">
-    <vtc-stepper [activeItem]="minute"
+    <dv-stepper [activeItem]="minute"
                  [list]="listMinutes"
                  (activeItemChange)="onMinuteChange($event)"
                  (itemSelected)="onItemSelected()">
-    </vtc-stepper>
+    </dv-stepper>
   </div>
   <div class="col g-1 col-auto">
-    <vtc-stepper [activeItem]="second"
+    <dv-stepper [activeItem]="second"
                  [list]="listSeconds"
                  (activeItemChange)="onSecondChange($event)"
                  (itemSelected)="onItemSelected()">
-    </vtc-stepper>
+    </dv-stepper>
   </div>
 </div>

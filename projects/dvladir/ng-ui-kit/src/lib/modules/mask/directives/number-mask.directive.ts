@@ -11,7 +11,7 @@ export interface MinMax {
 const DEFAULT_MIN_MAX: MinMax = {min: 1970, max: 2100};
 
 @Directive({
-  selector: 'input[vtcNumber]',
+  selector: 'input[dvNumber]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -29,7 +29,7 @@ export class NumberMaskDirective extends BaseMaskDirective<MinMax>{
     super(_inputRef, _r);
   }
 
-  @Input('vtcNumber') numberOptions?: MinMax;
+  @Input('dvNumber') numberOptions?: MinMax;
 
   protected createMaskOptions(value?: MinMax): IMask.AnyMaskedOptions | undefined {
     if (!value) {

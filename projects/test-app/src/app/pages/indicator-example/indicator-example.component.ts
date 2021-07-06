@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Indicator, IndicatorFactoryService} from '@dvladir/ng-ui-kit';
 
 @Component({
-  selector: 'vta-indicator-example',
+  selector: 'dva-indicator-example',
   templateUrl: './indicator-example.component.html',
   styleUrls: ['./indicator-example.component.scss']
 })

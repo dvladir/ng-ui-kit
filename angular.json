@@ -12,7 +12,7 @@
       },
       "root": "projects/dvladir/ng-ui-kit",
       "sourceRoot": "projects/dvladir/ng-ui-kit/src",
-      "prefix": "vtc",
+      "prefix": "dv",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -67,7 +67,7 @@
       },
       "root": "projects/test-app",
       "sourceRoot": "projects/test-app/src",
-      "prefix": "vta",
+      "prefix": "dva",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

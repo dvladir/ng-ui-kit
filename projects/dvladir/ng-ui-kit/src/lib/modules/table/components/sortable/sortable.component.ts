@@ -7,7 +7,7 @@ import {Sort} from '../../shared/sort.enum';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'th[vtcSortable]',
+  selector: 'th[dvSortable]',
   templateUrl: './sortable.component.html',
   styleUrls: ['./sortable.component.scss']
 })

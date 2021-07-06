@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
-import { VtMessage } from '../../../translations/shared/vt-message';
+import { DvMessage } from '../../../translations/shared/dv-message';
 import {ModalRef} from '../../shared/modal-ref';
 
 @Component({
-  selector: 'vtc-modal-dialog',
+  selector: 'dv-modal-dialog',
   templateUrl: './modal-dialog.component.html',
   styleUrls: ['./modal-dialog.component.scss']
 })
@@ -13,5 +13,5 @@ export class ModalDialogComponent {
     public ref: ModalRef
   ) { }
 
-  @Input() headerCaption?: VtMessage;
+  @Input() headerCaption?: DvMessage;
 }

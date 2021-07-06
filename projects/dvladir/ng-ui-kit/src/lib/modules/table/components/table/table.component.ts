@@ -20,7 +20,7 @@ import {SortStateService} from '../../services/sort-state.service';
 import { Indicator, IndicatorFactoryService } from '../../../indicator/public-api';
 
 @Component({
-  selector: 'vtc-table',
+  selector: 'dv-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   providers: [

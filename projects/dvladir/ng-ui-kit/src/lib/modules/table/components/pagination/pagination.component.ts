@@ -16,7 +16,7 @@ export interface PaginationInfo {
 }
 
 @Component({
-  selector: 'vtc-pagination',
+  selector: 'dv-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss'],
   providers: [

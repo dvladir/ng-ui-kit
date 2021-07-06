@@ -25,10 +25,10 @@ interface IsOpenable {
 }
 
 @Component({
-  selector: 'vtc-dropdown',
+  selector: 'dv-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
-  exportAs: 'vtcDropdown',
+  exportAs: 'dvDropdown',
   providers: [
     ActiveItemService
   ]
@@ -161,7 +161,7 @@ export class DropdownComponent implements OnInit, OnDestroy, OnChanges {
   onClose(event: MouseEvent): void {
     const t = event.target as HTMLElement;
     const parentContainer = this._container.nativeElement;
-    if (t === parentContainer || t.parentElement === parentContainer || t.classList.contains('vt-item')) {
+    if (t === parentContainer || t.parentElement === parentContainer || t.classList.contains('dv-item')) {
       return;
     }
     this.close();

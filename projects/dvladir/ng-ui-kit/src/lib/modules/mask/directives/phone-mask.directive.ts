@@ -4,7 +4,7 @@ import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import IMask from 'imask';
 
 @Directive({
-  selector: 'input[vtcPhone]',
+  selector: 'input[dvPhone]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -22,7 +22,7 @@ export class PhoneMaskDirective extends BaseMaskDirective<string> {
     super(_inputRef, _r);
   }
 
-  @Input('vtcPhone') phoneMask?: string;
+  @Input('dvPhone') phoneMask?: string;
 
   protected createMaskOptions(value?: string): IMask.AnyMaskedOptions | undefined {
     if (!value) {

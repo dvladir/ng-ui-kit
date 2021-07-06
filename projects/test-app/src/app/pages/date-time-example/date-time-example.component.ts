@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'vta-date-time-example',
+  selector: 'dva-date-time-example',
   templateUrl: './date-time-example.component.html',
   styleUrls: ['./date-time-example.component.scss']
 })

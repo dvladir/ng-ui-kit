@@ -1,10 +1,10 @@
 import {Directive, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {TranslationHelperService} from '../services/translation-helper.service';
 import {Subscription} from 'rxjs';
-import { VtMessage } from '../shared/vt-message';
+import { DvMessage } from '../shared/dv-message';
 
 @Directive({
-  selector: '[vtcBaseCaption]'
+  selector: '[dvBaseCaption]'
 })
 export abstract class BaseCaptionDirective implements OnChanges, OnInit, OnDestroy {
 
@@ -13,7 +13,7 @@ export abstract class BaseCaptionDirective implements OnChanges, OnInit, OnDestr
   ) {
   }
 
-  @Input() message: VtMessage = '';
+  @Input() message: DvMessage = '';
   @Input() view?: string;
   @Input() sfx?: string;
   @Input() pfx?: string;

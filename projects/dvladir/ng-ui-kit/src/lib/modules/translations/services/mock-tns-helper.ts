@@ -1,6 +1,6 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs';
-import {VtMessage} from '../shared/vt-message';
+import {DvMessage} from '../shared/dv-message';
 
 @Injectable()
 export class MockTnsHelper implements OnDestroy {
@@ -13,7 +13,7 @@ export class MockTnsHelper implements OnDestroy {
 
   readonly languageChange$: Subject<unknown> = new Subject<unknown>();
 
-  getTranslation(message: VtMessage, view?: string): string {
+  getTranslation(message: DvMessage, view?: string): string {
 
     if (!message) {
       return '';

@@ -3,7 +3,7 @@ import {ValueStoreService} from '../../services/value-store.service';
 import {UserListSourceService} from '../../services/user-list-source.service';
 
 @Component({
-  selector: 'vta-list-example',
+  selector: 'dva-list-example',
   templateUrl: './list-example.component.html',
   styleUrls: ['./list-example.component.scss']
 })

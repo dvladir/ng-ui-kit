@@ -5,6 +5,6 @@ export {CaptionDirective} from './directives/caption.directive';
 export {CaptionComponent} from './components/caption/caption.component';
 export {TranslationHelperService} from './services/translation-helper.service';
 export {SimpleMessage} from './shared/simple-message';
-export {VtMessage} from './shared/vt-message';
+export {DvMessage} from './shared/dv-message';
 export {DEFAULT_VIEW} from './shared/default-view';
 export {MockTnsHelper} from './services/mock-tns-helper';

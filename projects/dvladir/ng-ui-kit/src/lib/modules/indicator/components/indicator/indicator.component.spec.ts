@@ -6,9 +6,9 @@ import {Component} from '@angular/core';
 import {By} from '@angular/platform-browser';
 
 @Component({
-  selector: 'vtc-indicator-host-component',
+  selector: 'dv-indicator-host-component',
   template: `
-    <vtc-indicator [classes]="additionalClasses"></vtc-indicator>
+    <dv-indicator [classes]="additionalClasses"></dv-indicator>
   `
 })
 class IndicatorHostComponent {

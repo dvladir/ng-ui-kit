@@ -11,13 +11,13 @@
     class="list-group"
     #scrollViewport>
     <ng-container *cdkVirtualFor="let item of (listProvider.items$ | async); let i = index">
-      <a class="list-group-item list-group-item-action vt-item" tabindex="-1"
+      <a class="list-group-item list-group-item-action dv-item" tabindex="-1"
          [class.active]="activeItem.activeItemIndex === i" (click)="onItemClick(i);false">
         {{item.label}}
       </a>
     </ng-container>
   </cdk-virtual-scroll-viewport>
   <div class="search-in-progress" *ngIf="listProvider.isPending">
-    <vtc-indicator classes="fa-3x"></vtc-indicator>
+    <dv-indicator classes="fa-3x"></dv-indicator>
   </div>
 </ng-template>

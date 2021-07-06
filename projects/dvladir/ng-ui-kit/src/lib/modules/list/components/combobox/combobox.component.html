@@ -1,5 +1,5 @@
-<vtc-dropdown #vtcDropdown="vtcDropdown" [listProvider]="listProvider" [(selectedItem)]="selectedItem" [showAll]="showAll">
-  <div #readonlyView class="form-control" [class.is-hidden]="vtcDropdown.isOpen" [tabIndex]="vtTabIndex"
+<dv-dropdown #dvDropdown="dvDropdown" [listProvider]="listProvider" [(selectedItem)]="selectedItem" [showAll]="showAll">
+  <div #readonlyView class="form-control" [class.is-hidden]="dvDropdown.isOpen" [tabIndex]="dvTabIndex"
        [attr.readonly]="readonlyState"
        (click)="open()"
        (keydown.arrowDown)="open()"
@@ -7,21 +7,21 @@
        (keydown.backspace)="clear()">
     {{selectedItem?.label || '&nbsp;'}}
   </div>
-  <input #searchInput type="text" class="form-control" [class.is-hidden]="!vtcDropdown.isOpen" [tabindex]="vtTabIndex"
+  <input #searchInput type="text" class="form-control" [class.is-hidden]="!dvDropdown.isOpen" [tabindex]="dvTabIndex"
          [(ngModel)]="listProvider.searchValue"
          (keydown.arrowDown)="onKeyDown()"
          (keydown.arrowUp)="onKeyUp()"
          (keydown.escape)="close()"
          (keydown.enter)="close(true)"/>
-  <ng-container *ngIf="listProvider.isPending && !vtcDropdown.isOpen; then progressIndicator; else comboIndicator">
+  <ng-container *ngIf="listProvider.isPending && !dvDropdown.isOpen; then progressIndicator; else comboIndicator">
   </ng-container>
   <ng-template #progressIndicator>
-    <vtc-indicator classes="fa-2x"></vtc-indicator>
+    <dv-indicator classes="fa-2x"></dv-indicator>
   </ng-template>
   <ng-template #comboIndicator>
     <i class="fas combo-indicator" [ngClass]="{
-    'fa-chevron-down': !vtcDropdown.isOpen,
-    'fa-search': vtcDropdown.isOpen
+    'fa-chevron-down': !dvDropdown.isOpen,
+    'fa-search': dvDropdown.isOpen
   }"></i>
   </ng-template>
-</vtc-dropdown>
+</dv-dropdown>

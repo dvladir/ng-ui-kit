@@ -1,13 +1,13 @@
-<vtc-modal-dialog>
-  <vtc-modal-body>
-    <vtc-caption [value]="ref.data!.message"></vtc-caption>
-  </vtc-modal-body>
-  <vtc-modal-footer>
+<dv-modal-dialog>
+  <dv-modal-body>
+    <dv-caption [value]="ref.data!.message"></dv-caption>
+  </dv-modal-body>
+  <dv-modal-footer>
     <ng-container *ngFor="let btn of ref.data!.buttons">
       <button type="button" [ngClass]="btn.btnClass" (click)="ref.close(btn.value)">
         <i *ngIf="btn.btnIcon" [ngClass]="['fa', btn.btnIcon]"></i>
-        <vtc-caption [value]="btn.caption"></vtc-caption>
+        <dv-caption [value]="btn.caption"></dv-caption>
       </button>
     </ng-container>
-  </vtc-modal-footer>
-</vtc-modal-dialog>
+  </dv-modal-footer>
+</dv-modal-dialog>

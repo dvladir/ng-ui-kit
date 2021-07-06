@@ -19,7 +19,7 @@ import {map, takeUntil} from 'rxjs/operators';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
 
 @Component({
-  selector: 'vtc-stepper',
+  selector: 'dv-stepper',
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.scss'],
   providers: [

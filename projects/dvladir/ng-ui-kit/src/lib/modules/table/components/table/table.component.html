@@ -6,20 +6,20 @@
         <tr cdk-row *cdkRowDef="let row; columns: displayColumns"></tr>
         <tr *cdkNoDataRow>
           <td [colSpan]="displayColumns.length" class="text-center">
-            <vtc-caption value="no_data"></vtc-caption>
+            <dv-caption value="no_data"></dv-caption>
           </td>
         </tr>
       </table>
       <div class="table-in-progress" *ngIf="indicator.isInProgress">
-        <vtc-indicator classes="fa-3x"></vtc-indicator>
+        <dv-indicator classes="fa-3x"></dv-indicator>
       </div>
     </div>
-    <vtc-pagination class="float-right"
+    <dv-pagination class="float-right"
                     [disabled]="indicator.isInProgress"
                     [current]="(currentPage$ | async)!"
                     (currentChange)="updateCurrentPage($event)"
                     [count]="(pagesCount$ | async)!"
                     [isCurrentPageAutoUpdate]="false">
-    </vtc-pagination>
+    </dv-pagination>
   </div>
 </div>

@@ -8,7 +8,7 @@ import {MultiChoiceModalData} from '../shared/multi-choice-modal-data';
 import {MultiChoiceModalComponent} from '../components/multi-choice-modal/multi-choice-modal.component';
 import {Choice} from '../../../_common/choices.enum';
 import {ButtonDescription} from '../shared/button-description';
-import { VtMessage } from '../../translations/public-api';
+import { DvMessage } from '../../translations/public-api';
 
 @Injectable({
   providedIn: 'root'
@@ -76,7 +76,7 @@ export class ModalService {
     return this.open(MultiChoiceModalComponent, modalOptions);
   }
 
-  openMultiConfirm(message: VtMessage): Promise<Choice> {
+  openMultiConfirm(message: DvMessage): Promise<Choice> {
     const view = 'YES_NO_CANCEL';
 
     const buttons: ButtonDescription<Choice>[] = [
@@ -88,7 +88,7 @@ export class ModalService {
     return this.openMultiChoice({message, buttons});
   }
 
-  openConfirm(message: VtMessage): Promise<boolean> {
+  openConfirm(message: DvMessage): Promise<boolean> {
     const view = 'YES_NO_CANCEL';
 
     const buttons: ButtonDescription<Choice>[] = [
@@ -99,7 +99,7 @@ export class ModalService {
     return this.openMultiChoice({message, buttons}).then(x => x === Choice.yes);
   }
 
-  openMessage(message: VtMessage): Promise<boolean> {
+  openMessage(message: DvMessage): Promise<boolean> {
     const view = 'YES_NO_CANCEL';
 
     const buttons: ButtonDescription<Choice>[] = [

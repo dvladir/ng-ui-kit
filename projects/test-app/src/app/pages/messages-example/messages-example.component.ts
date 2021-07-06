@@ -3,7 +3,7 @@ import {ModalService, ToastService} from '@dvladir/ng-ui-kit';
 import {TestModalComponent} from '../../components/test-modal/test-modal.component';
 
 @Component({
-  selector: 'vta-messages-example',
+  selector: 'dva-messages-example',
   templateUrl: './messages-example.component.html',
   styles: [`
     button {

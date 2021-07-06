@@ -1,9 +1,9 @@
 <div class="input-group">
   <input class="form-control"
-         [(vtcDateTimeManualInput)]="date"
+         [(dvDateTimeManualInput)]="date"
          [dateFormat]="dateFormat"
          [parseStrategy]="strategy"
-         [tabIndex]="vtcTabIndex"
+         [tabIndex]="dvTabIndex"
          [disabled]="isDisabled"
          (click)="closeCalendar()"/>
   <button type="button" class="btn btn-outline-primary" cdkOverlayOrigin
@@ -14,6 +14,6 @@
   </button>
 </div>
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
-  <vtc-picker [(date)]="date" [withTime]="withTime" (datePicked)="closeCalendar()">
-  </vtc-picker>
+  <dv-picker [(date)]="date" [withTime]="withTime" (datePicked)="closeCalendar()">
+  </dv-picker>
 </ng-template>

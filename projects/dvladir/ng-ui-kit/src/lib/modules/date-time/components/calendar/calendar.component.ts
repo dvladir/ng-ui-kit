@@ -23,7 +23,7 @@ export interface CalendarDate {
 }
 
 @Component({
-  selector: 'vtc-calendar',
+  selector: 'dv-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })

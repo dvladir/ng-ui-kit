@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'vtc-modal-header',
+  selector: 'dv-modal-header',
   template: `
     <ng-content></ng-content>`
 })

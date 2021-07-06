@@ -20,19 +20,19 @@ const mockRef: ModalRef<number, string> = {
 };
 
 @Component({
-  selector: 'vtc-test-dialog',
+  selector: 'dv-test-dialog',
   template: `
-    <vtc-modal-dialog [headerCaption]="headerCaption">
-      <vtc-modal-header>
+    <dv-modal-dialog [headerCaption]="headerCaption">
+      <dv-modal-header>
         <span class="t-header" *ngIf="headerContent">{{headerContent}}</span>
-      </vtc-modal-header>
-      <vtc-modal-body>
+      </dv-modal-header>
+      <dv-modal-body>
         <span class="t-body" *ngIf="bodyContent">{{bodyContent}}</span>
-      </vtc-modal-body>
-      <vtc-modal-footer>
+      </dv-modal-body>
+      <dv-modal-footer>
         <span class="t-footer" *ngIf="footerContent">{{footerContent}}</span>
-      </vtc-modal-footer>
-    </vtc-modal-dialog>
+      </dv-modal-footer>
+    </dv-modal-dialog>
   `
 })
 class MockModalDialogComponent {

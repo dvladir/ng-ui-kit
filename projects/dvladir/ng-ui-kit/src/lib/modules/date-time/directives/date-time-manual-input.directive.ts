@@ -18,7 +18,7 @@ import {format, parse} from 'date-fns';
 import {ParseDateStrategy} from '../shared/parse-date/parse-date-strategy';
 
 @Directive({
-  selector: 'input[vtcDateTimeManualInput]'
+  selector: 'input[dvDateTimeManualInput]'
 })
 export class DateTimeManualInputDirective implements OnDestroy, OnChanges {
 
@@ -34,8 +34,8 @@ export class DateTimeManualInputDirective implements OnDestroy, OnChanges {
   @Input() dateFormat?: DateFormat;
   @Input() parseStrategy?: ParseDateStrategy;
 
-  @Input('vtcDateTimeManualInput') date?: Date;
-  @Output('vtcDateTimeManualInputChange') dateChange: EventEmitter<Date> = new EventEmitter<Date>();
+  @Input('dvDateTimeManualInput') date?: Date;
+  @Output('dvDateTimeManualInputChange') dateChange: EventEmitter<Date> = new EventEmitter<Date>();
 
   private setupMask(dateFormat: DateFormat | undefined): void {
     if (this._mask) {

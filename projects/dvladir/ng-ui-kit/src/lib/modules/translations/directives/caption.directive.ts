@@ -1,10 +1,10 @@
 import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
 import {TranslationHelperService} from '../services/translation-helper.service';
 import {BaseCaptionDirective} from './base-caption.directive';
-import {VtMessage} from '../shared/vt-message';
+import {DvMessage} from '../shared/dv-message';
 
 @Directive({
-  selector: '[vtcCaption]'
+  selector: '[dvCaption]'
 })
 export class CaptionDirective extends BaseCaptionDirective {
 
@@ -16,7 +16,7 @@ export class CaptionDirective extends BaseCaptionDirective {
     super(tnsHelper);
   }
 
-  @Input('vtcCaption') message: VtMessage = '';
+  @Input('dvCaption') message: DvMessage = '';
 
   protected updateText(text: string): void {
     this._renderer.setProperty(this._elRef.nativeElement, 'innerHTML', text);

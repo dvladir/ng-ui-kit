@@ -1,7 +1,7 @@
-import {VtMessage} from '../../translations/public-api';
+import {DvMessage} from '../../translations/public-api';
 
 export interface ButtonDescription<T> {
-  caption: VtMessage;
+  caption: DvMessage;
   btnClass: string;
   btnIcon?: string;
   isDefault?: boolean;

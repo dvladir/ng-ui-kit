@@ -1,12 +1,12 @@
 import {Component, EventEmitter, HostListener, Input, Output, TrackByFunction} from '@angular/core';
-import { VtMessage } from '../../../translations/shared/vt-message';
+import { DvMessage } from '../../../translations/shared/dv-message';
 
 interface Openable {
   isOpen: boolean;
 }
 
 @Component({
-  selector: 'vtc-action-list',
+  selector: 'dv-action-list',
   templateUrl: './action-list.component.html',
   styleUrls: ['./action-list.component.scss']
 })
@@ -16,7 +16,7 @@ export class ActionListComponent {
 
   readonly trackByFn: TrackByFunction<{key: string}> = (index, item) => item.key;
 
-  @Input() items: ReadonlyArray<{key: string, label: VtMessage}> = [];
+  @Input() items: ReadonlyArray<{key: string, label: DvMessage}> = [];
 
   @Output() chooseAction: EventEmitter<string> = new EventEmitter<string>();
 

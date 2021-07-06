@@ -3,7 +3,7 @@ import {SimpleTime} from '../../shared/simple-time';
 import {isValid} from 'date-fns';
 
 @Component({
-  selector: 'vtc-picker',
+  selector: 'dv-picker',
   templateUrl: './picker.component.html',
   styleUrls: ['./picker.component.scss']
 })

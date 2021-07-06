@@ -4,14 +4,14 @@
       <ng-container *ngIf="isShow; then show; else hide;">
       </ng-container>
       <ng-template #show>
-        <vtc-caption value="show_indicator"></vtc-caption>
+        <dv-caption value="show_indicator"></dv-caption>
       </ng-template>
       <ng-template #hide>
-        <vtc-caption value="hide_indicator"></vtc-caption>
+        <dv-caption value="hide_indicator"></dv-caption>
       </ng-template>
     </button>
   </div>
   <div class="col col-auto">
-    <vtc-indicator *ngIf="indicator.isInProgress" classes="fa-2x"></vtc-indicator>
+    <dv-indicator *ngIf="indicator.isInProgress" classes="fa-2x"></dv-indicator>
   </div>
 </div>

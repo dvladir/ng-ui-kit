@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ValueStoreService} from '../../services/value-store.service';
 
 @Component({
-  selector: 'vta-masks-example',
+  selector: 'dva-masks-example',
   templateUrl: './masks-example.component.html',
   styleUrls: ['./masks-example.component.scss']
 })

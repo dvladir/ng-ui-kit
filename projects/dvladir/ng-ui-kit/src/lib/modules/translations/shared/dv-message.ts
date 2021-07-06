@@ -1,2 +1,2 @@
 import {SimpleMessage} from './simple-message';
-export type VtMessage = string | SimpleMessage;
+export type DvMessage = string | SimpleMessage;

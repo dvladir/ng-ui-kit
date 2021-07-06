@@ -8,7 +8,7 @@ import {noop} from 'rxjs';
 import {format, isValid, parse} from 'date-fns';
 
 @Component({
-  selector: 'vtc-date-time-picker',
+  selector: 'dv-date-time-picker',
   templateUrl: './date-time-picker.component.html',
   styleUrls: ['./date-time-picker.component.scss'],
   providers: [
@@ -22,7 +22,7 @@ import {format, isValid, parse} from 'date-fns';
 export class DateTimePickerComponent implements OnChanges, ControlValueAccessor, OnDestroy {
 
   @Input() withTime: boolean = true;
-  @Input() vtcTabIndex?: number;
+  @Input() dvTabIndex?: number;
 
   private _onChange: (value?: string) => void = noop;
 

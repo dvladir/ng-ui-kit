@@ -6,7 +6,7 @@ import {UsersService} from '../../services/users.service';
 import {PaginationConfig, SortField} from '@dvladir/ng-ui-kit';
 
 @Component({
-  selector: 'vta-table-example',
+  selector: 'dva-table-example',
   templateUrl: './table-example.component.html',
   styles: [
   ]

@@ -11,11 +11,11 @@ import {SortStateMockService} from '../../services/sort-state.mock.service';
 import {SortStateService} from '../../services/sort-state.service';
 
 @Component({
-  selector: 'vtc-sortable-wrapper',
+  selector: 'dv-sortable-wrapper',
   template: `
     <table cdk-table [dataSource]="source">
       <ng-container cdkColumnDef="name">
-        <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+        <th cdk-header-cell *cdkHeaderCellDef dvSortable>
           Name
         </th>
         <td cdk-cell *cdkCellDef="let element">{{element.name}}</td>

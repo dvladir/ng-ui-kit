@@ -1,18 +1,18 @@
 <div class="row">
   <div class="col">
-    <vtc-combobox [(ngModel)]="vs.selectedValue" dataSource="MESSAGES"></vtc-combobox>
+    <dv-combobox [(ngModel)]="vs.selectedValue" dataSource="MESSAGES"></dv-combobox>
     {{vs.selectedValue}}
   </div>
 </div>
 <div class="row mt-5">
   <div class="col">
-    <vtc-combobox [(ngModel)]="vs.selectedValueAll" dataSource="V_TABS" [showAll]="true"></vtc-combobox>
+    <dv-combobox [(ngModel)]="vs.selectedValueAll" dataSource="V_TABS" [showAll]="true"></dv-combobox>
     {{vs.selectedValueAll}}
   </div>
 </div>
 <div class="row mt-5">
   <div class="col">
-    <vtc-combobox [(ngModel)]="vs.selectedUserId" [dataSource]="usersProvider"></vtc-combobox>
+    <dv-combobox [(ngModel)]="vs.selectedUserId" [dataSource]="usersProvider"></dv-combobox>
     {{vs.selectedUserId}}
   </div>
 </div>

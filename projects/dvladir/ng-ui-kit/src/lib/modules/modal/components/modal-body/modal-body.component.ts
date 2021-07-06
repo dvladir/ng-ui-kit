@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'vtc-modal-body',
+  selector: 'dv-modal-body',
   template: `
     <ng-content></ng-content>`
 })

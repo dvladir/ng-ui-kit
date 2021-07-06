@@ -2,10 +2,10 @@
   <div class="modal-content">
     <div class="modal-header">
       <ng-container *ngIf="headerCaption; else renderHeader">
-        <vtc-caption [value]="headerCaption"></vtc-caption>
+        <dv-caption [value]="headerCaption"></dv-caption>
       </ng-container>
       <ng-template #renderHeader>
-        <ng-content select="vtc-modal-header"></ng-content>
+        <ng-content select="dv-modal-header"></ng-content>
       </ng-template>
       <button type="button" class="close"
               *ngIf="ref.showCloseButton"
@@ -14,10 +14,10 @@
       </button>
     </div>
     <div class="modal-body">
-      <ng-content select="vtc-modal-body"></ng-content>
+      <ng-content select="dv-modal-body"></ng-content>
     </div>
     <div class="modal-footer">
-      <ng-content select="vtc-modal-footer"></ng-content>
+      <ng-content select="dv-modal-footer"></ng-content>
     </div>
   </div>
 </div>

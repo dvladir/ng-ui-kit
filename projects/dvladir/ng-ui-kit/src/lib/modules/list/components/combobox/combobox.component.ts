@@ -23,7 +23,7 @@ interface ReadonlyState {
 }
 
 @Component({
-  selector: 'vtc-combobox',
+  selector: 'dv-combobox',
   templateUrl: './combobox.component.html',
   styleUrls: ['./combobox.component.scss'],
   providers: [
@@ -42,7 +42,7 @@ export class ComboboxComponent implements OnDestroy, OnChanges, ControlValueAcce
 
   @Input() showAll: boolean = false;
   @Input() dataSource?: ListDataSource;
-  @Input() vtTabIndex?: number;
+  @Input() dvTabIndex?: number;
 
   private _onChange: (value?: unknown) => void = noop;
 
@@ -52,7 +52,7 @@ export class ComboboxComponent implements OnDestroy, OnChanges, ControlValueAcce
   @ViewChild('readonlyView', {static: true})
   private _readonlyView!: ElementRef;
 
-  @ViewChild('vtcDropdown', {static: true, read: DropdownComponent})
+  @ViewChild('dvDropdown', {static: true, read: DropdownComponent})
   private _dropdown!: DropdownComponent;
 
   listProvider: ListProvider<unknown> = this._listProviderFactory.create();

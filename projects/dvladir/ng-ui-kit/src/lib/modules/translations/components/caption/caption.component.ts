@@ -1,15 +1,15 @@
 import {Component, Input} from '@angular/core';
-import { VtMessage } from '../../shared/vt-message';
+import { DvMessage } from '../../shared/dv-message';
 
 @Component({
-  selector: 'vtc-caption',
+  selector: 'dv-caption',
   template: `
-    <span [vtcCaption]="value" [view]="view" [pfx]="pfx" [sfx]="sfx">
+    <span [dvCaption]="value" [view]="view" [pfx]="pfx" [sfx]="sfx">
     </span>
   `
 })
 export class CaptionComponent {
-  @Input() value: VtMessage = '';
+  @Input() value: DvMessage = '';
   @Input() view?: string;
   @Input() sfx?: string;
   @Input() pfx?: string;

@@ -6,7 +6,7 @@ import {MessageType} from '../../shared/message-type.enum';
 import {container, flyIn, flyOut} from './toast-view-animations';
 
 @Component({
-  selector: 'vtc-toast-view',
+  selector: 'dv-toast-view',
   templateUrl: './toast-view.component.html',
   styleUrls: ['./toast-view.component.scss'],
   animations: [

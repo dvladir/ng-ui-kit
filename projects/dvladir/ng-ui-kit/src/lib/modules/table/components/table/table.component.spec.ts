@@ -46,22 +46,22 @@ const TEST_ITEM_SORT_PREDICATES = {
 };
 
 @Component({
-  selector: 'vtc-test-host-table',
+  selector: 'dv-test-host-table',
   template: `
-    <vtc-table [config]="config" [pageSize]="pageSize" [dataColumns]="displayColumns">
+    <dv-table [config]="config" [pageSize]="pageSize" [dataColumns]="displayColumns">
       <ng-container cdkColumnDef="name">
-        <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+        <th cdk-header-cell *cdkHeaderCellDef dvSortable>
           Name
         </th>
         <td cdk-cell *cdkCellDef="let element">{{element.name}}</td>
       </ng-container>
       <ng-container cdkColumnDef="age">
-        <th cdk-header-cell *cdkHeaderCellDef vtcSortable>
+        <th cdk-header-cell *cdkHeaderCellDef dvSortable>
             Age
         </th>
         <td cdk-cell *cdkCellDef="let element">{{element.age}}</td>
       </ng-container>
-    </vtc-table>
+    </dv-table>
   `
 })
 class TestHostTableComponent {

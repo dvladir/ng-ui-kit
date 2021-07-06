@@ -3,7 +3,7 @@ import { DEFAULT_ERROR_VIEW } from '../../shared/default-error-view';
 import { ErrorSourceDirective } from '../../directives/error-source.directive';
 
 @Component({
-  selector: 'vtc-error-description',
+  selector: 'dv-error-description',
   templateUrl: './error-description.component.html',
   styleUrls: ['./error-description.component.scss']
 })
