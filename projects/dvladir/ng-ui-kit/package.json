@@ -10,7 +10,9 @@
     "bootstrap": "5.0.1",
     "date-fns": "^2.19.0",
     "imask": "^6.0.7",
-    "uuid": "^8.3.2",
+    "uuid": "^8.3.2"
+  },
+  "dependencies": {
     "tslib": "^2.0.0"
   },
   "license": "GPL3"

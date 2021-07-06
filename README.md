@@ -1,6 +1,6 @@
-# VToolkit
+# @dvladir/ng-ui-kit 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
+Simple ui-kit for Angular based on Bootstrap 5 and angular-cdk
 
 ## Development server
 
