@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ModalService, ToastService} from '@vt/core';
+import { Component} from '@angular/core';
+import {ModalService, ToastService} from '@dvladir/ng-ui-kit';
 import {TestModalComponent} from '../../components/test-modal/test-modal.component';
 
 @Component({

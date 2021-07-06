@@ -2,7 +2,7 @@ import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {CustomLoader} from './custom-loader';
-import {DEFAULT_VIEW} from '@vt/core';
+import {DEFAULT_VIEW} from '@dvladir/ng-ui-kit';
 
 
 @NgModule({

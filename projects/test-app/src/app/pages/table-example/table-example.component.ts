@@ -3,7 +3,7 @@ import {Observable, Subject} from 'rxjs';
 import {shareReplay, takeUntil} from 'rxjs/operators';
 import {User} from '../../shared/users-data';
 import {UsersService} from '../../services/users.service';
-import {PaginationConfig, SortField} from '@vt/core';
+import {PaginationConfig, SortField} from '@dvladir/ng-ui-kit';
 
 @Component({
   selector: 'vta-table-example',

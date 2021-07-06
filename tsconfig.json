@@ -21,10 +21,9 @@
       "dom"
     ],
     "paths": {
-      "@vt/core": [
-        "projects/vt/core/src/public-api.ts",
-        "dist/vt/core/vt-core",
-        "dist/vt/core",
+      "@dvladir/ng-ui-kit": [
+        "projects/dvladir/ng-ui-kit/src/public-api.ts",
+        "dist/dvladir/ng-ui-kit",
       ]
     }
   },

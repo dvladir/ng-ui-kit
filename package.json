@@ -1,14 +1,14 @@
 {
-  "name": "v-toolkit",
+  "name": "@dvladir/ng-ui-kit",
   "version": "0.0.1",
   "license": "GPL3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-lib": "ng build @vt/core",
+    "build-lib": "ng build @dvladir/ng-ui-kit",
     "test": "ng test",
-    "test-lib": "ng test @vt/core",
+    "test-lib": "ng test @dvladir/ng-ui-kit",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

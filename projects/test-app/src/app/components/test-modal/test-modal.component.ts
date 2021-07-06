@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {BaseModalComponent, ModalRef} from '@vt/core';
+import {BaseModalComponent, ModalRef} from '@dvladir/ng-ui-kit';
 
 @Component({
   selector: 'vta-test-modal',

@@ -1,4 +1,4 @@
-import {Utils} from '@vt/core';
+import {Utils} from '@dvladir/ng-ui-kit';
 
 export interface User {
   id: number;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Indicator, IndicatorFactoryService} from '@vt/core';
+import {Indicator, IndicatorFactoryService} from '@dvladir/ng-ui-kit';
 
 @Component({
   selector: 'vta-indicator-example',

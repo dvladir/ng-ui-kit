@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, timer} from 'rxjs';
 import {User, USERS} from '../shared/users-data';
 import {map, tap} from 'rxjs/operators';
-import {PaginationData, Sort, SortField} from '@vt/core';
+import {PaginationData, Sort, SortField} from '@dvladir/ng-ui-kit';
 
 const TIMEOUT = 500;
 

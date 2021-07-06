@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AsyncDataSource, ValueLabel} from '@vt/core';
+import {AsyncDataSource, ValueLabel} from '@dvladir/ng-ui-kit';
 import {UsersService} from './users.service';
 import {User} from '../shared/users-data';
 import {Observable} from 'rxjs';
