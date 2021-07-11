@@ -7,7 +7,7 @@ pipeline {
     dockerfile {
       filename 'Dockerfile.build'
       label "build-image"
-      args "-v ${PWD}:/usr/src/app -w /usr/src/app"
+      args "-v /usr/src/app:/usr/src/app -w /usr/src/app"
       reuseNode true
     }
   }
