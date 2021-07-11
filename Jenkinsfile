@@ -12,9 +12,15 @@ pipeline {
   }
 
   stages {
+    state("Install") {
+      steps {
+        withNPM(npmrcConfig: 'dev-npm-rc') {
+          sh "yarn"
+        }
+      }
+    }
     stage("Build") {
       steps {
-        sh "yarn"
         sh "yarn build-lib"
       }
     }
