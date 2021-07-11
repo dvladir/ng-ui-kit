@@ -31,7 +31,7 @@ pipeline {
     }
     stage("Postbuild") {
       steps {
-        sh "cat yarn.lock"
+        sh "cat .npmrc"
       }
     }
   }
