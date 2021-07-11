@@ -29,5 +29,10 @@ pipeline {
         sh "yarn test-lib"
       }
     }
+    stage("Postbuild") {
+      steps {
+        sh "cat yarn.lock"
+      }
+    }
   }
 }
