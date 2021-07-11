@@ -15,7 +15,7 @@ pipeline {
     stage("Install") {
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
-          sh "yarn"
+          sh "yarn --verbose"
         }
       }
     }
