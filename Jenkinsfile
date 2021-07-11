@@ -7,7 +7,6 @@ pipeline {
     dockerfile {
       filename 'Dockerfile.build'
       args "-v /usr/src/app:/usr/src/app -w /usr/src/app"
-      reuseNode true
     }
   }
 
@@ -15,7 +14,7 @@ pipeline {
     stage("Install") {
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
-          sh "yarn --verbose"
+          sh "yarn"
         }
       }
     }
@@ -31,7 +30,10 @@ pipeline {
     }
     stage("Postbuild") {
       steps {
+        sh "echo NPMRC"
         sh "cat .npmrc"
+        sh "echo LOCK_FILE"
+        sh "echo yarn.lock"
       }
     }
   }
