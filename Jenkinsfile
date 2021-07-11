@@ -17,7 +17,8 @@ pipeline {
         cleanWs()
         checkout scm
         withNPM(npmrcConfig: 'dev-npm-rc') {
-          sh "yarn"
+          sh "echo INSTALL"
+          sh "yarn --verbose"
         }
       }
     }
