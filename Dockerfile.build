@@ -1,1 +1,1 @@
-FROM "node:14-alpine"
+FROM "rastasheep/alpine-node-chromium:14-alpine"
