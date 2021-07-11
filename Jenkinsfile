@@ -1,6 +1,7 @@
 pipeline {
   options {
     disableConcurrentBuilds()
+    skipDefaultCheckout(true)
   }
 
   agent {
@@ -11,8 +12,10 @@ pipeline {
   }
 
   stages {
-    stage("Install") {
+    stage("Prepare") {
       steps {
+        cleanWs()
+        checkout scm
         withNPM(npmrcConfig: 'dev-npm-rc') {
           sh "yarn"
         }
@@ -33,7 +36,7 @@ pipeline {
         sh "echo NPMRC"
         sh "cat .npmrc"
         sh "echo LOCK_FILE"
-        sh "echo yarn.lock"
+        sh "cat yarn.lock"
       }
     }
   }
