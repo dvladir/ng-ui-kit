@@ -19,7 +19,7 @@ pipeline {
         checkout scm
       }
     }
-    state("Install"){
+    stage("Install"){
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
           sh "echo INSTALL"
