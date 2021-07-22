@@ -14,37 +14,29 @@ pipeline {
     stage("Install"){
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
-          echo INSTALL
-          yarn --verbose
+          sh "echo INSTALL"
+          sh "yarn --verbose"
         }
       }
     }
     stage("Build") {
       steps {
-        yarn build-lib
+        sh "yarn build-lib"
       }
     }
     stage("Test") {
       steps {
-        yarn test-lib
-      }
-    }
-    stage("Postbuild") {
-      steps {
-        sh "echo NPMRC"
-        sh "cat .npmrc"
-        sh "echo LOCK_FILE"
-        sh "cat yarn.lock"
+        sh "yarn test-lib"
       }
     }
   }
 
   post {
     always {
-      echo NPMRC
-      cat .npmrc
-      echo LOCK_FILE
-      cat yarn.lock
+      sh "echo NPMRC"
+      sh "cat .npmrc"
+      sh "echo LOCK_FILE"
+      sh "cat yarn.lock"
       cleanWs()
     }
   }
