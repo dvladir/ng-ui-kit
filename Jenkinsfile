@@ -14,7 +14,6 @@ pipeline {
     stage("Install"){
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
-          sh "cat .npmrc"
           sh "yarn"
         }
       }
@@ -33,7 +32,6 @@ pipeline {
       steps {
         dir('dist/dvladir/ng-ui-kit') {
           withNPM(npmrcConfig: 'dev-npm-rc-publish') {
-            sh "cat .npmrc"
             sh "yarn publish --access public --non-interactive --verbose"
           }
         }
