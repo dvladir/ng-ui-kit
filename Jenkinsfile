@@ -6,20 +6,17 @@ pipeline {
   agent {
     dockerfile {
       filename 'Dockerfile.build'
-      args '-v /usr/src/app:/usr/src/app -w /usr/src/app --net="lde-net"'
+      args '-v /usr/src/app:/usr/src/app -w /usr/src/app'
     }
   }
 
   stages {
-/*
     stage("Prepare") {
-      agent any
       steps {
-        cleanWs()
-        checkout scm
+        sh "echo NETWORKS"
+        sh "docker network ls"
       }
     }
-*/
     stage("Install"){
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
