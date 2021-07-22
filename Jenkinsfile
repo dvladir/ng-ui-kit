@@ -14,8 +14,8 @@ pipeline {
     stage("Install"){
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
-          sh "echo INSTALL"
-          sh "yarn --verbose"
+          sh "cat .npmrc"
+          sh "yarn"
         }
       }
     }
@@ -29,14 +29,20 @@ pipeline {
         sh "yarn test-lib"
       }
     }
+    stage("Publish") {
+      steps {
+        dir('dist/dvladir/ng-ui-kit') {
+          withNPM(npmrcConfig: 'dev-npm-rc-publish') {
+            sh "cat .npmrc"
+            sh "yarn publish --access public --non-interactive --verbose"
+          }
+        }
+      }
+    }
   }
 
   post {
     always {
-      sh "echo NPMRC"
-      sh "cat .npmrc"
-      sh "echo LOCK_FILE"
-      sh "cat yarn.lock"
       cleanWs()
     }
   }
