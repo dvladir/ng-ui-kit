@@ -13,9 +13,14 @@ pipeline {
 
   stages {
     stage("Prepare") {
+      agent any
       steps {
         cleanWs()
         checkout scm
+      }
+    }
+    state("Install"){
+      steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
           sh "echo INSTALL"
           sh "yarn --verbose"
