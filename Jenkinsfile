@@ -1,7 +1,6 @@
 pipeline {
   options {
     disableConcurrentBuilds()
-    skipDefaultCheckout(true)
   }
 
   agent {
@@ -12,6 +11,7 @@ pipeline {
   }
 
   stages {
+/*
     stage("Prepare") {
       agent any
       steps {
@@ -19,6 +19,7 @@ pipeline {
         checkout scm
       }
     }
+*/
     stage("Install"){
       steps {
         withNPM(npmrcConfig: 'dev-npm-rc') {
