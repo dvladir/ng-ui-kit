@@ -6,8 +6,7 @@ pipeline {
   agent {
     dockerfile {
       filename 'Dockerfile.build'
-      args '-v /usr/src/app:/usr/src/app -w /usr/src/app --net="lde-net"'
-      reuseNode true
+      args '-v /usr/src/app:/usr/src/app -w /usr/src/app --net=host'
     }
   }
 
