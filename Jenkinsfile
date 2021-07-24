@@ -16,15 +16,19 @@ pipeline {
         stage("DEV ENV") {
           when {branch 'develop'}
           steps {
-            env.INSTALL_CONFIG = 'dev-npm-rc'
-            env.PUBLISH_CONFIG = 'dev-npm-rc-publish'
+            script {
+              env.INSTALL_CONFIG = 'dev-npm-rc'
+              env.PUBLISH_CONFIG = 'dev-npm-rc-publish'
+            }
           }
         }
         stage("MASTER ENV") {
           when {branch 'master'}
           steps {
-            env.INSTALL_CONFIG = 'master-npm-rc'
-            env.PUBLISH_CONFIG = 'master-npm-rc-publish'
+            script {
+              env.INSTALL_CONFIG = 'master-npm-rc'
+              env.PUBLISH_CONFIG = 'master-npm-rc-publish'
+            }
           }
         }
       }
