@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage("Install"){
       steps {
-        withNPM(npmrcConfig: 'dev-npm-rc') {
+        withNPM(npmrcConfig: 'foo') {
           sh "yarn"
         }
       }
