@@ -1,0 +1,17 @@
+<div class="input-group">
+    <div class="combo-container">
+      <dv-combobox [(ngModel)]="selectedMask"
+                   [dataSource]="items | masks2ListItems"
+                   [showAll]="true"
+                   [disabled]="isDisabled"
+                   [dvTabIndex]="dvTabIndex"
+                   (itemManualSelected)="onMaskSelect()">
+      </dv-combobox>
+    </div>
+    <input type="text" class="form-control"
+           #maskInput
+           [(ngModel)]="inputValue"
+           [dvPhone]="selectedMask?.mask"
+           [disabled]="isDisabled"
+           [tabIndex]="dvTabIndex"/>
+</div>

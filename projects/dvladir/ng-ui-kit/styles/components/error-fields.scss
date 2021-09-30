@@ -16,6 +16,10 @@ dv-date-time-picker.ng-dirty.ng-invalid .form-control {
   @extend .dv-error-field;
 }
 
+dv-phone-input.ng-dirty.ng-invalid .form-control {
+  @extend .dv-error-field;
+}
+
 .dv-err-descr {
   color: $error-color !important;
 }

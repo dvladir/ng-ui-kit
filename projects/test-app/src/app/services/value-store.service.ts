@@ -9,6 +9,7 @@ export class ValueStoreService {
   selectedUserId?: number;
 
   phone?: string;
+  phone2?: string;
   email?: string;
   year?: number;
 }

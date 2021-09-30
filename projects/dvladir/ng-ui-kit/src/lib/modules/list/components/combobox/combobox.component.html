@@ -12,7 +12,8 @@
          (keydown.arrowDown)="onKeyDown()"
          (keydown.arrowUp)="onKeyUp()"
          (keydown.escape)="close()"
-         (keydown.enter)="close(true)"/>
+         (keydown.enter)="close(true)"
+         (keydown.tab)="close(true, false)"/>
   <ng-container *ngIf="listProvider.isPending && !dvDropdown.isOpen; then progressIndicator; else comboIndicator">
   </ng-container>
   <ng-template #progressIndicator>

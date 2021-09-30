@@ -1,0 +1,10 @@
+.combo-container {
+  min-width: 6rem;
+  max-width: 6rem;
+  display: block;
+}
+
+dv-combobox::ng-deep .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

@@ -1,4 +1,5 @@
 import {v4} from 'uuid';
+import {ElementRef} from '@angular/core';
 
 export class Utils {
 
@@ -22,5 +23,14 @@ export class Utils {
       i++;
       yield item;
     }
+  }
+
+  static focusElementRef(elRef: ElementRef): void {
+    if (!elRef?.nativeElement) {
+      return;
+    }
+    setTimeout(() => {
+      elRef.nativeElement.focus();
+    }, 10);
   }
 }

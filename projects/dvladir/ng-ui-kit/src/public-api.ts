@@ -15,4 +15,5 @@ export * from './lib/modules/list/public-api';
 export * from './lib/modules/date-time/public-api';
 export * from './lib/modules/mask/public-api';
 export * from './lib/modules/form-ext/public-api';
+export * from './lib/modules/phone-input/public-api';
 export * from './lib/core.module';

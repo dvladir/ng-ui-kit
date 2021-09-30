@@ -1,10 +1,10 @@
 import {
   Component,
-  ElementRef,
+  ElementRef, EventEmitter,
   forwardRef,
   Input,
   OnChanges,
-  OnDestroy,
+  OnDestroy, Output,
   SimpleChanges,
   ViewChild
 } from '@angular/core';
@@ -15,6 +15,7 @@ import {ListProvider} from '../../services/list-providers/list-provider';
 import {ListDataSource} from '../../shared/list-data-source';
 import {ValueLabel} from '../../../../_common/value-label';
 import {DropdownComponent} from '../dropdown/dropdown.component';
+import {Utils} from '../../../../_common/utils';
 
 const READONLY: string = 'readonly';
 
@@ -43,6 +44,8 @@ export class ComboboxComponent implements OnDestroy, OnChanges, ControlValueAcce
   @Input() showAll: boolean = false;
   @Input() dataSource?: ListDataSource;
   @Input() dvTabIndex?: number;
+
+  @Output() itemManualSelected: EventEmitter<unknown> = new EventEmitter<unknown>();
 
   private _onChange: (value?: unknown) => void = noop;
 
@@ -77,15 +80,6 @@ export class ComboboxComponent implements OnDestroy, OnChanges, ControlValueAcce
       this._onChange(value?.value);
     }
 
-  }
-
-  private focusElementRef(elRef: ElementRef): void {
-    if (!elRef?.nativeElement) {
-      return;
-    }
-    setTimeout(() => {
-      elRef.nativeElement.focus();
-    }, 10);
   }
 
   ngOnDestroy(): void {
@@ -124,10 +118,13 @@ export class ComboboxComponent implements OnDestroy, OnChanges, ControlValueAcce
     this._dropdown.selectNextItem();
   }
 
-  async close(updateValue: boolean = false): Promise<unknown> {
+  async close(updateValue: boolean = false, isAutofocus: boolean = true): Promise<unknown> {
     const isClosed = await this._dropdown.close(updateValue);
-    if (isClosed) {
-      this.focusElementRef(this._readonlyView);
+    if (isClosed && isAutofocus) {
+      Utils.focusElementRef(this._readonlyView);
+    }
+    if (isClosed && updateValue) {
+      this.itemManualSelected.emit();
     }
     return undefined;
   }
@@ -138,7 +135,7 @@ export class ComboboxComponent implements OnDestroy, OnChanges, ControlValueAcce
     }
     const isOpened = this._dropdown.open();
     if (isOpened) {
-      this.focusElementRef(this._searchInput);
+      Utils.focusElementRef(this._searchInput);
     }
   }
 
