@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { ValueLabel } from '../../../_common/value-label';
 import {PhoneMaskItem} from '../shared/phone-mask-item';
-import {ValueLabel} from '@dvladir/ng-ui-kit';
 
 @Pipe({
   name: 'masks2ListItems'
