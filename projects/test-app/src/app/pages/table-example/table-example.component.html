@@ -11,8 +11,8 @@
     </th>
     <td cdk-cell *cdkCellDef="let element">{{element.middleName}}</td>
   </ng-container>
-  <ng-container cdkColumnDef="lastName">
-    <th cdk-header-cell *cdkHeaderCellDef dvSortable>
+  <ng-container cdkColumnDef="lastNameAlt">
+    <th cdk-header-cell *cdkHeaderCellDef dvSortable="lastName">
       <dv-caption value="last_name"></dv-caption>
     </th>
     <td cdk-cell *cdkCellDef="let element">{{element.lastName}}</td>

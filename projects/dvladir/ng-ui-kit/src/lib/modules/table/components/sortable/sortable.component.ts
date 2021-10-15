@@ -1,4 +1,4 @@
-import {Component, Host, OnInit} from '@angular/core';
+import {Component, Host, Input, OnInit} from '@angular/core';
 import {CdkColumnDef} from '@angular/cdk/table';
 import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -23,14 +23,21 @@ export class SortableComponent implements OnInit {
 
   sort$: Observable<Sort> = of(Sort.none);
 
-  changeSort(currentSort: Sort): void {
+  @Input('dvSortable') nameOverride?: string;
+
+  private getName(): string {
     const {name} = this._colDef;
+    return this.nameOverride || name;
+  }
+
+  changeSort(currentSort: Sort): void {
+    const name = this.getName();
     const newSort = currentSort !== Sort.asc ? Sort.asc : Sort.desc;
     this._sortState.update({field: name, sort: newSort});
   }
 
   ngOnInit(): void {
-    const {name} = this._colDef;
+    const name = this.getName();
     this.sort$ = this._sortState.value$
       .pipe(
         map(x => {
